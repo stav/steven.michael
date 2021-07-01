@@ -87,10 +87,10 @@ email: "sroth77@gmail.com"
 highlight_name: true
 ---
 
-_Tropical Solar_: [**Capricornus**](https://en.wikipedia.org/wiki/Capricorn_(astrology) "Capricornus @ Wikipedia") (♑) Cardinal Earth Sea-goat
+* _Tropical Solar_: [**Capricornus**](https://en.wikipedia.org/wiki/Capricorn_(astrology) "Capricornus @ Wikipedia") (♑) Cardinal Earth Sea-goat
   | The Sumerian Enki was the god of intelligence, creation, crafts, magic & water
 
-_Sidereal Solar_: [**Sagittarius**](https://en.wikipedia.org/wiki/Sagittarius_(astrology) "Sagittarius @ Wikipedia") (♐) Mutable Fire Archer
+* _Sidereal Solar_: [**Sagittarius**](https://en.wikipedia.org/wiki/Sagittarius_(astrology) "Sagittarius @ Wikipedia") (♐) Mutable Fire Archer
   | The *centaur* of mythology, the learned healer whose higher intelligence forms a bridge between Earth and Heaven
 
-_Chinese_: **Wood Snake** (蛇) Month: **May** Time: **9:00 to 11:00 a.m.**
+* _Chinese_: **Wood Snake** (蛇) Month: **May** Time: **9:00 to 11:00 a.m.**
