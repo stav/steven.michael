@@ -10,14 +10,14 @@ main:
   - name: Posts
     url: '#posts'
     weight: 20
-  - name: Projects
-    url: '#projects'
+  - name: Git
+    url: '#git'
     weight: 30
-  - name: Talks
-    url: '#talks'
+  - name: Node
+    url: '#node'
     weight: 40
-  - name: Publications
-    url: '#featured'
+  - name: Unix
+    url: '#unix'
     weight: 50
   - name: Contact
     url: '#contact'
