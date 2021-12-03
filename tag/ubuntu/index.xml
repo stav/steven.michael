@@ -1,0 +1,1858 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu | Academic</title>
+    <link>https://example.com/tag/ubuntu/</link>
+      <atom:link href="https://example.com/tag/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    <description>Ubuntu</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Thu, 23 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://example.com/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Ubuntu</title>
+      <link>https://example.com/tag/ubuntu/</link>
+    </image>
+    
+    <item>
+      <title>What to do after installing Ubuntu 19.10</title>
+      <link>https://example.com/post/ubuntu-1910/</link>
+      <pubDate>Thu, 23 Jan 2020 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/ubuntu-1910/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;This guide serves as a reminder for me when I go to install &lt;a href=&#34;https://www.ubuntu.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ubuntu&lt;/a&gt; again. I
+am not going to show how to install Ubuntu, that is available all over the net.
+What I will describe is what I did after install to get my workstation back up
+and running with what I need to do Python development.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;i class=&#34;fab fa-linux fa-2x&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+For me, a sub-average long-time software developer, Ubuntu is a great operating
+system.  Canonical, the company who releases Ubuntu, does so every six months,
+in April and October; therefore, version 19.04 was released in April 2019.&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;My system&lt;/dt&gt;
+&lt;dd&gt;Asus x86_64 Grub GNU Debian Ubuntu 19.10 Eoan Ermine&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Normally I like to install every new Ubuntu release for the following reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;I remove all the cruft I have gathered, notice I said &amp;ldquo;install&amp;rdquo;, not &amp;ldquo;upgrade&amp;rdquo;,&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;new features available.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;details class=&#34;toc-inpage d-print-none  &#34; open&gt;
+  &lt;summary class=&#34;font-weight-bold&#34;&gt;Table of Contents&lt;/summary&gt;
+  &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#pre-install&#34;&gt;Pre-Install&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#post-install&#34;&gt;Post-Install&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#update&#34;&gt;Update&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#tools&#34;&gt;Tools&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#system-monitor&#34;&gt;System Monitor&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#firefox&#34;&gt;Firefox&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#sublime-text&#34;&gt;Sublime Text&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#sublime-merge&#34;&gt;Sublime Merge&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#keys&#34;&gt;Keys&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#git&#34;&gt;Git&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#bash&#34;&gt;Bash&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#hugo&#34;&gt;Hugo&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#communication&#34;&gt;Communication&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#development&#34;&gt;Development&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#applications&#34;&gt;Applications&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#previous-installs&#34;&gt;Previous Installs&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;/details&gt;
+&lt;h2 id=&#34;pre-install&#34;&gt;Pre-Install&lt;/h2&gt;
+&lt;p&gt;Note: You are going to have to backup your current files to another partition
+like I did or you could use an external drive or USB stick.  I keep my Bash
+files in a GitHub repo, see &lt;a href=&#34;#bash&#34;&gt;Bash&lt;/a&gt; below.&lt;/p&gt;
+&lt;p&gt;The main things I backed up were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;~/bin/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.config/sublime-text-3/Packages/User/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.ssh/config&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.gitconfig&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.hgrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.s3cfg&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;post-install&#34;&gt;Post-Install&lt;/h2&gt;
+&lt;p&gt;Here is my list of things I had to do to after the install to get up and
+running with a fresh Ubuntu.&lt;/p&gt;
+&lt;h3 id=&#34;update&#34;&gt;Update&lt;/h3&gt;
+&lt;p&gt;First update Ubuntu with any recent security fixes&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;tools&#34;&gt;Tools&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt install curl htop vim gnome-tweak-tool
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Restore &lt;code&gt;~/bin/&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;system-monitor&#34;&gt;System Monitor&lt;/h3&gt;
+&lt;p&gt;I love to have system info in the &lt;em&gt;Top Panel&lt;/em&gt; so that I can alway have a quick
+glance at cpu usage and network traffic; but, my beloved &lt;code&gt;indicator-multiload&lt;/code&gt;
+applet no longer works on recent version of Ubuntu.&lt;/p&gt;
+&lt;p&gt;So now I switched to an extension/applet called [Gnome Shell System Monitor]
+(&lt;a href=&#34;https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet)&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ gnome-shell --version
+GNOME Shell 3.34.1
+
+$ sudo apt install gir1.2-gtop-2.0 gir1.2-nm-1.0 gir1.2-clutter-1.0
+$ sudo apt install chrome-gnome-shell
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then go to the &lt;a href=&#34;https://extensions.gnome.org/extension/120/system-monitor/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Extension page&lt;/a&gt;
+and click the &amp;ldquo;ON&amp;rdquo; switch&lt;/p&gt;
+&lt;h3 id=&#34;firefox&#34;&gt;Firefox&lt;/h3&gt;
+&lt;p&gt;Use dark theme&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;about:addons -&amp;gt; Themes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Update search engine to Duck Duck Go:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;about:preferences#search -&amp;gt; Default Search Engine
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Do not warn when closing multiple tabs:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;about:config
+
+Search: &amp;quot;browser.tabs.warn&amp;quot;
+
+    browser.tabs.warnOnClose `false`
+    browser.tabs.warnOnCloseOtherTabs `false`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;sublime-text&#34;&gt;Sublime Text&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.sublimetext.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sublime Text&lt;/a&gt; is an excellent editor.&lt;/p&gt;
+&lt;h4 id=&#34;install&#34;&gt;Install&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo snap install sublime-text
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;license&#34;&gt;License&lt;/h4&gt;
+&lt;p&gt;Add under help menu.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;----- BEGIN LICENSE -----
+Steven Almeroth
+Single User License
+EA7E-... 104B
+------ END LICENSE ------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;package-control&#34;&gt;Package Control&lt;/h4&gt;
+&lt;p&gt;You want Package Control from wbond.&lt;/p&gt;
+&lt;h5 id=&#34;install-package-control&#34;&gt;Install Package Control&lt;/h5&gt;
+&lt;p&gt;Command Pallate (&lt;code&gt;shft-ctrl-p&lt;/code&gt;) -&amp;gt; Install Package Control&lt;/p&gt;
+&lt;h4 id=&#34;install-packages&#34;&gt;Install packages&lt;/h4&gt;
+&lt;p&gt;Restore the following file from your backup and Package Control will
+automatically install all missing packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;~/.config/sublime-text-3/Packages/User/Package Control.sublime-settings&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  &amp;quot;installed_packages&amp;quot;:
+  [
+      &amp;quot;Anaconda&amp;quot;,
+      &amp;quot;GitGutter&amp;quot;,
+      &amp;quot;Hugofy&amp;quot;,
+      &amp;quot;INI&amp;quot;,
+      &amp;quot;Package Control&amp;quot;,
+      &amp;quot;Pretty JSON&amp;quot;,
+      &amp;quot;Python Pretty Print&amp;quot;,
+      &amp;quot;Theme - SoDaReloaded&amp;quot;,
+      &amp;quot;TrailingSpaces&amp;quot;,
+      &amp;quot;Vue Syntax Highlight&amp;quot;
+  ]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then restart SublimeText.&lt;/p&gt;
+&lt;h4 id=&#34;copy-files&#34;&gt;Copy Files&lt;/h4&gt;
+&lt;p&gt;Copy remaining backup files to &lt;code&gt;~/.config/sublime-text-3/Packages/User/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Do not copy these files:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;User/Package Control.last-run&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;User/Package Control.merged-ca-bundle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;User/Package Control.user-ca-bundle&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;sublime-merge&#34;&gt;Sublime Merge&lt;/h3&gt;
+&lt;p&gt;I also now use &lt;a href=&#34;https://www.sublimemerge.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sublime Merge&lt;/a&gt; from the same people.&lt;/p&gt;
+&lt;h4 id=&#34;install-1&#34;&gt;Install&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.sublimemerge.com/docs/linux_repositories&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.sublimemerge.com/docs/linux_repositories&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;keys&#34;&gt;Keys&lt;/h3&gt;
+&lt;p&gt;Install ssh keys&lt;/p&gt;
+&lt;h4 id=&#34;generate&#34;&gt;Generate&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ssh-keygen -t rsa -b 4096 -C &amp;quot;stav@maximillion&amp;quot;
+$ eval &amp;quot;$(ssh-agent -s)&amp;quot;
+$ ssh-add ~/.ssh/id_rsa
+$ sudo apt-get install xclip
+$ xclip -sel clip &amp;lt; ~/.ssh/id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;github&#34;&gt;GitHub&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/settings/keys&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/settings/keys&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bitbucket&#34;&gt;BitBucket&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://bitbucket.org/account/user/stav/ssh-keys/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://bitbucket.org/account/user/stav/ssh-keys/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;cowboy&#34;&gt;Cowboy&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;$ cat ~/.ssh/id_rsa.pub | ssh stav@cowboy &#39;cat &amp;gt;&amp;gt; ~/.ssh/authorized_keys&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;git&#34;&gt;Git&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get install git git-extras gitg meld tree
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;bash&#34;&gt;Bash&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ git clone git@github.com:stav/dotbash.git ~/.bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;install-bash_it&#34;&gt;Install bash_it&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;$ git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+$ ~/.bash_it/install.sh  # keep existing `.bashrc` and append templates
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;install-powerline-theme&#34;&gt;Install Powerline theme&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Bash-it/bash-it/tree/master/themes/powerline&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/Bash-it/bash-it/tree/master/themes/powerline&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ mkdir ~/Public/powerline
+$ cd ~/Public/powerline
+$ git clone --depth=1 https://github.com/powerline/fonts.git
+$ ./fonts/install.sh
+$ wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+$ wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+$ mv PowerlineSymbols.otf ~/.local/share/fonts/
+$ fc-cache -vf ~/.local/share/fonts/
+$ mkdir -p ~/.config/fontconfig/conf.d/
+$ mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Close all Terminal instances&lt;/p&gt;
+&lt;h4 id=&#34;copy-files-1&#34;&gt;Copy files&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;.bash_projects
+.bash-it.bash
+.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;link-files-for-editor-reference&#34;&gt;Link files for editor reference&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;stav@thelatae:~$ ll .bash_links/
+.bash-it.bash -&amp;gt; /home/stav/.bash-it.bash
+.bash_projects -&amp;gt; /home/stav/.bash_projects
+.bashrc -&amp;gt; /home/stav/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;hugo&#34;&gt;Hugo&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s good to update this document as I&amp;rsquo;m installing.&lt;/p&gt;
+&lt;h4 id=&#34;instal-hugo&#34;&gt;Instal Hugo&lt;/h4&gt;
+&lt;p&gt;The default installation did not work:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo snap install hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Running the command got an error:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ hugo
+Building sites ERROR: failed to transform resource:
+TOCSS: failed to transform &amp;quot;main_parsed.scss&amp;quot; (text/x-scss):
+this feature is not available in your current Hugo version,
+see https://goo.gl/YMrWcn
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So I installed the [extended version] (&lt;a href=&#34;https://github.com/gohugoio/hugo/releases%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/gohugoio/hugo/releases)&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;clone-repository&#34;&gt;Clone Repository&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;$ mkdir -p ~/Work/stav/Hugo
+$ git clone git@github.com:stav/steven.michael.git ~/Work/stav/Hugo/steven.michael
+$ git submodule update --init --recursive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;communication&#34;&gt;Communication&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo snap install bluemail telegram-desktop
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;development&#34;&gt;Development&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt install build-essential libsqlite3-dev sqlite3 bzip2 libbz2-dev zlib1g-dev libssl-dev openssl libgdbm-dev libgdbm-compat-dev liblzma-dev libreadline-dev libncursesw5-dev libffi-dev uuid-dev
+$ sudo apt install python3-pip python3-venv virtualenvwrapper
+$ sudo apt install git git-extras meld tree
+
+$ python3
+Python 3.7.5 (Nov 20 2019)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;applications&#34;&gt;Applications&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt install chromium-browser gimp
+
+# sudo add-apt-repository ppa:mc3man/mpv-tests
+# sudo apt-get install mpv
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;previous-installs&#34;&gt;Previous Installs&lt;/h2&gt;
+&lt;p&gt;I previously installed some other stuff:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://example.com/post/ubuntu-1810/&#34;&gt;19.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://example.com/post/ubuntu-1810/&#34;&gt;18.10&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://example.com/post/ubuntu-1710/&#34;&gt;17.10&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://example.com/post/ubuntu-1704/&#34;&gt;17.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://example.com/post/ubuntu-1604/&#34;&gt;16.04&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What to do after installing Ubuntu 19.04</title>
+      <link>https://example.com/post/ubuntu-1904/</link>
+      <pubDate>Tue, 07 May 2019 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/ubuntu-1904/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;This guide serves as a reminder for me when I go to install &lt;a href=&#34;https://www.ubuntu.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ubuntu&lt;/a&gt; again. I
+am not going to show how to install Ubuntu, that is available all over the net.
+What I will describe is what I did after install to get my workstation back up
+and running with what I need to do Python development.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;i class=&#34;fab fa-linux fa-2x&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+For me, a sub-average long-time software developer, Ubuntu is a great operating
+system.  Canonical, the company who releases Ubuntu, does so every six months,
+in April and October; therefore, version 19.04 was released in April 2019.&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;My system&lt;/dt&gt;
+&lt;dd&gt;Lenovo Yogo 2 Pro x86_64 Grub GNU Debian Ubuntu 19.04 Disco Dingo&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Normally I like to install every new Ubuntu release for the following reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;I remove all the cruft I have gathered, notice I said &amp;ldquo;install&amp;rdquo;, not &amp;ldquo;upgrade&amp;rdquo;,&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;new features available.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;details class=&#34;toc-inpage d-print-none  &#34; open&gt;
+  &lt;summary class=&#34;font-weight-bold&#34;&gt;Table of Contents&lt;/summary&gt;
+  &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#partitions&#34;&gt;Partitions&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#pre-install&#34;&gt;Pre-Install&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#post-install&#34;&gt;Post-Install&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#update&#34;&gt;Update&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#terminal&#34;&gt;Terminal&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#tools&#34;&gt;Tools&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#system-monitor&#34;&gt;System Monitor&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#firefox&#34;&gt;Firefox&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#sublime-text&#34;&gt;Sublime Text&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#sublime-merge&#34;&gt;Sublime Merge&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#keys&#34;&gt;Keys&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#git&#34;&gt;Git&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#bash&#34;&gt;Bash&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#hugo&#34;&gt;Hugo&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#slack&#34;&gt;Slack&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#e-mail&#34;&gt;E-mail&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#development&#34;&gt;Development&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#applications&#34;&gt;Applications&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#system-config&#34;&gt;System config&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#previous-installs&#34;&gt;Previous Installs&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;/details&gt;
+&lt;h2 id=&#34;partitions&#34;&gt;Partitions&lt;/h2&gt;
+&lt;p&gt;Partition information is important when using a custom install.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL
+NAME    FSTYPE     SIZE MOUNTPOINT      LABEL
+sda              238.5G
+├─sda1  vfat       477M                 WINY
+├─sda2  swap       8.4G
+├─sda3  ext4        28G /
+├─sda4  ext4        51G
+├─sda5  ext4      81.7G                 Meadow
+├─sda6  ntfs         4G                 LENOVO
+├─sda7  vfat       250M /boot/efi       BOOT
+└─sda10 ext4      61.8G                 Distroer
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://example.com/img/partitions1904.png&#34;&gt;
+&lt;h2 id=&#34;pre-install&#34;&gt;Pre-Install&lt;/h2&gt;
+&lt;p&gt;Note: You are going to have to backup your current files to another partition
+like I did or you could use an external drive or USB stick.  I keep my Bash
+files in a GitHub repo, see &lt;a href=&#34;#bash&#34;&gt;Bash&lt;/a&gt; below.&lt;/p&gt;
+&lt;p&gt;The main things I backed up were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;~/bin/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.bash_links/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.config/sublime-text-3/Packages/User/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.ssh/config&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.gitconfig&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.hgrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.s3cfg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.scrapinghub.yml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Gramps&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dconf dump /org/gnome/terminal/ &amp;gt; gnome_terminal_settings_backup&lt;/code&gt;  # &lt;a href=&#34;https://askubuntu.com/questions/967517#967535&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://askubuntu.com/questions/967517#967535&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cp ~/.bash_links/*  -L  * /media/stav/Meadow/xenix&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;post-install&#34;&gt;Post-Install&lt;/h2&gt;
+&lt;p&gt;Here is my list of things I had to do to after the install to get up and
+running with a fresh Ubuntu.&lt;/p&gt;
+&lt;h3 id=&#34;update&#34;&gt;Update&lt;/h3&gt;
+&lt;p&gt;First update Ubuntu with any recent security fixes&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;terminal&#34;&gt;Terminal&lt;/h3&gt;
+&lt;p&gt;Reload backup settings.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://askubuntu.com/questions/967517#967535&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://askubuntu.com/questions/967517#967535&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ cp ~/.config/dconf/user /tmp # backup
+$ dconf reset -f /org/gnome/terminal/
+$ dconf load /org/gnome/terminal/ &amp;lt; gnome_terminal_settings_backup
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;tools&#34;&gt;Tools&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt install curl htop vim gnome-tweak-tool
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Restore &lt;code&gt;~/bin/&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;system-monitor&#34;&gt;System Monitor&lt;/h3&gt;
+&lt;p&gt;I love to have system info in the &lt;em&gt;Top Panel&lt;/em&gt; so that I can alway have a quick
+glance at cpu usage and network traffic; but, my beloved &lt;code&gt;indicator-multiload&lt;/code&gt;
+applet no longer works on recent version of Ubuntu.&lt;/p&gt;
+&lt;p&gt;So now I switched to an extension/applet called [Gnome Shell System Monitor]
+(&lt;a href=&#34;https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet)&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ gnome-shell --version
+GNOME Shell 3.32.0
+
+$ sudo apt install gir1.2-gtop-2.0 gir1.2-networkmanager-1.0  gir1.2-clutter-1.0
+$ sudo apt install chrome-gnome-shell
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then go to the &lt;a href=&#34;https://extensions.gnome.org/extension/120/system-monitor/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Extension page&lt;/a&gt;
+and click the &amp;ldquo;ON&amp;rdquo; switch&lt;/p&gt;
+&lt;h3 id=&#34;firefox&#34;&gt;Firefox&lt;/h3&gt;
+&lt;p&gt;Use dark theme&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;about:addons -&amp;gt; Themes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Update search engine to Duck Duck Go:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;about:preferences#search -&amp;gt; Default Search Engine
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Do not warn when closing multiple tabs:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;about:config
+
+Search: &amp;quot;browser.tabs.warn&amp;quot;
+
+    browser.tabs.warnOnClose `false`
+    browser.tabs.warnOnCloseOtherTabs `false`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;sublime-text&#34;&gt;Sublime Text&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.sublimetext.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sublime Text&lt;/a&gt; is an excellent editor.&lt;/p&gt;
+&lt;h4 id=&#34;install&#34;&gt;Install&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo snap install sublime-text
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;license&#34;&gt;License&lt;/h4&gt;
+&lt;p&gt;Add under help menu.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;----- BEGIN LICENSE -----
+Steven Almeroth
+Single User License
+EA7E-... 104B
+------ END LICENSE ------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;package-control&#34;&gt;Package Control&lt;/h4&gt;
+&lt;p&gt;You want Package Control from wbond.&lt;/p&gt;
+&lt;h5 id=&#34;install-package-control&#34;&gt;Install Package Control&lt;/h5&gt;
+&lt;p&gt;Command Pallate (&lt;code&gt;shft-ctrl-p&lt;/code&gt;) -&amp;gt; Install Package Control&lt;/p&gt;
+&lt;h4 id=&#34;install-packages&#34;&gt;Install packages&lt;/h4&gt;
+&lt;p&gt;Restore the following file from your backup and Package Control will automatically install all missing packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;~/.config/sublime-text-3/Packages/User/Package Control.sublime-settings&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  &amp;quot;installed_packages&amp;quot;:
+  [
+      &amp;quot;Anaconda&amp;quot;,
+      &amp;quot;GitGutter&amp;quot;,
+      &amp;quot;Hugofy&amp;quot;,
+      &amp;quot;INI&amp;quot;,
+      &amp;quot;Package Control&amp;quot;,
+      &amp;quot;Pretty JSON&amp;quot;,
+      &amp;quot;Python Pretty Print&amp;quot;,
+      &amp;quot;Theme - SoDaReloaded&amp;quot;,
+      &amp;quot;TrailingSpaces&amp;quot;,
+      &amp;quot;Vue Syntax Highlight&amp;quot;
+  ]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;copy-files&#34;&gt;Copy Files&lt;/h4&gt;
+&lt;p&gt;Copy remaining backup files to &lt;code&gt;~/.config/sublime-text-3/Packages/User/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Do not copy these files:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;User/Package Control.last-run&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;User/Package Control.merged-ca-bundle&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;User/Package Control.user-ca-bundle&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;sublime-merge&#34;&gt;Sublime Merge&lt;/h3&gt;
+&lt;p&gt;I also now use &lt;a href=&#34;https://www.sublimemerge.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sublime Merge&lt;/a&gt; from the same people.&lt;/p&gt;
+&lt;h4 id=&#34;install-1&#34;&gt;Install&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.sublimemerge.com/docs/linux_repositories&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.sublimemerge.com/docs/linux_repositories&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;keys&#34;&gt;Keys&lt;/h3&gt;
+&lt;p&gt;Install ssh keys&lt;/p&gt;
+&lt;h4 id=&#34;generate&#34;&gt;Generate&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ssh-keygen -t rsa -b 4096 -C &amp;quot;stav@maximillion&amp;quot;
+$ eval &amp;quot;$(ssh-agent -s)&amp;quot;
+$ ssh-add ~/.ssh/id_rsa
+$ sudo apt-get install xclip
+$ xclip -sel clip &amp;lt; ~/.ssh/id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;github&#34;&gt;GitHub&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/settings/keys&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/settings/keys&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;bitbucket&#34;&gt;BitBucket&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://bitbucket.org/account/user/stav/ssh-keys/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://bitbucket.org/account/user/stav/ssh-keys/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;cowboy&#34;&gt;Cowboy&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;$ cat ~/.ssh/id_rsa.pub | ssh stav@cowboy &#39;cat &amp;gt;&amp;gt; ~/.ssh/authorized_keys&#39;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;git&#34;&gt;Git&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get install git git-extras gitg meld tree
+$ sublime merge https://www.sublimemerge.com/docs/linux_repositories#apt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;bash&#34;&gt;Bash&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ git clone git@github.com:stav/dotbash.git ~/.bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;install-bash_it&#34;&gt;Install bash_it&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;$ git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+$ ~/.bash_it/install.sh  # keep existing `.bashrc` and append templates
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;install-powerline-theme&#34;&gt;Install Powerline theme&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Bash-it/bash-it/tree/master/themes/powerline&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/Bash-it/bash-it/tree/master/themes/powerline&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ mkdir ~/Public/powerline
+$ cd ~/Public/powerline
+$ git clone --depth=1 https://github.com/powerline/fonts.git
+$ ./fonts/install.sh
+$ wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+$ wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+$ mv PowerlineSymbols.otf ~/.local/share/fonts/
+$ fc-cache -vf ~/.local/share/fonts/
+$ mkdir -p ~/.config/fontconfig/conf.d/
+$ mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Close all Terminal instances&lt;/p&gt;
+&lt;h4 id=&#34;copy-files-1&#34;&gt;Copy files&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;.bash_projects
+.bash-it.bash
+.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;link-files-for-editor-reference&#34;&gt;Link files for editor reference&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;stav@thelatae:~$ ll .bash_links/
+.bash-it.bash -&amp;gt; /home/stav/.bash-it.bash
+.bash_projects -&amp;gt; /home/stav/.bash_projects
+.bashrc -&amp;gt; /home/stav/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;hugo&#34;&gt;Hugo&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s good to update this document as I&amp;rsquo;m installing.&lt;/p&gt;
+&lt;h4 id=&#34;instal-hugo&#34;&gt;Instal Hugo&lt;/h4&gt;
+&lt;p&gt;The default installation did not work:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo snap install hugo
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Running the command got an error:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ hugo
+Building sites ERROR 2019/05/07 18:29:45 error: failed to transform resource:
+TOCSS: failed to transform &amp;quot;main_parsed.scss&amp;quot; (text/x-scss): this feature is
+not available in your current Hugo version, see https://goo.gl/YMrWcn
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So I installed the [extended version]
+(&lt;a href=&#34;https://github.com/gohugoio/hugo/releases/download/v0.55.5/hugo_extended_0.55.5_Linux-64bit.deb%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/gohugoio/hugo/releases/download/v0.55.5/hugo_extended_0.55.5_Linux-64bit.deb)&lt;/a&gt;.&lt;/p&gt;
+&lt;h4 id=&#34;clone-repository&#34;&gt;Clone Repository&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;$ mkdir -p ~/Work/stav/Hugo
+$ git clone git@github.com:stav/steven.michael.git ~/Work/stav/Hugo/steven.michael
+$ git submodule update --init --recursive
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;slack&#34;&gt;Slack&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo snap install slack --classic
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;e-mail&#34;&gt;E-mail&lt;/h3&gt;
+&lt;p&gt;Add settings in Thunderbird setup&lt;/p&gt;
+&lt;h3 id=&#34;development&#34;&gt;Development&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt install build-essential libsqlite3-dev sqlite3 bzip2 libbz2-dev zlib1g-dev libssl-dev openssl libgdbm-dev libgdbm-compat-dev liblzma-dev libreadline-dev libncursesw5-dev libffi-dev uuid-dev
+$ sudo apt install python3-pip python3-venv virtualenvwrapper
+$ sudo apt install git git-extras meld tree
+
+$ python3
+Python 3.7.3 (default, Apr  3 2019, 05:39:12)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;poetry&#34;&gt;Poetry&lt;/h4&gt;
+&lt;p&gt;Based on an &lt;a href=&#34;https://vorpus.org/blog/why-im-not-collaborating-with-kenneth-reitz&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;article&lt;/a&gt; I read about what Nathaniel Smith posted in his blog,
+I had a bad taste in my mouth when I thought about using &lt;em&gt;Pipenv&lt;/em&gt; as the package
+management system for a new project; so; I went to look for something else and
+that is when I read what Sébastien Eustace &lt;a href=&#34;s://github.com/sdispater/poetry#what-about-pipenv&#34;&gt;said&lt;/a&gt; about &lt;em&gt;Pipenv&lt;/em&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;I do not like the CLI it provides, or some of the decisions made&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Since &lt;em&gt;Poetry&lt;/em&gt; makes use of &lt;code&gt;pyproject.toml&lt;/code&gt; files I thought I&amp;rsquo;d give it a go.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;Poetry is a tool for dependency management and packaging in Python&amp;rdquo;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://poetry.eustace.io/docs/#installation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Installation&lt;/a&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;node&#34;&gt;Node&lt;/h4&gt;
+&lt;h5 id=&#34;install-nvm&#34;&gt;Install nvm&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/creationix/nvm/blob/master/README.md#installation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/creationix/nvm/blob/master/README.md#installation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This will update your &lt;code&gt;.bashrc&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Open a new terminal, or else you can setup the environment variable manually
+which the installer will explain how to do.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ nvm --version
+    0.34.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;install-node&#34;&gt;Install node&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ nvm ls-remote |tail
+
+       v11.15.0
+        v12.3.0
+        v12.3.1
+
+$ nvm install 12 --latest-npm
+
+Downloading and installing node v12.3.1...
+Downloading https://nodejs.org/dist/v12.3.1/node-v12.3.1-linux-x64.tar.xz...
+Computing checksum with sha256sum Checksums matched!
+Now using node v12.3.1 (npm v6.9.0)
+Creating default alias: default -&amp;gt; 12 (-&amp;gt; v12.3.1)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ node -v
+v12.3.1
+
+$ npm -v
+6.9.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;install-yarn&#34;&gt;Install yarn&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&#34;https://yarnpkg.com/en/docs/install#debian&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://yarnpkg.com/en/docs/install#debian&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;
+$ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+$ echo &amp;quot;deb https://dl.yarnpkg.com/debian/ stable main&amp;quot; | sudo tee /etc/apt/sources.list.d/yarn.list
+$ sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install --no-install-recommends yarn
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ yarn -v
+1.16.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;applications&#34;&gt;Applications&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt install chromium-browser gimp mpv
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;system-config&#34;&gt;System config&lt;/h3&gt;
+&lt;p&gt;See &lt;a href=&#34;https://example.com/post/ubuntu-yoga/&#34;&gt;Lenovo Yoga Ultrabook SSD Tweaks&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;previous-installs&#34;&gt;Previous Installs&lt;/h2&gt;
+&lt;p&gt;I previously installed some other stuff:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://example.com/post/ubuntu-1810/&#34;&gt;18.10&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://example.com/post/ubuntu-1710/&#34;&gt;17.10&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://example.com/post/ubuntu-1704/&#34;&gt;17.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://example.com/post/ubuntu-1604/&#34;&gt;16.04&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What to do after installing Ubuntu 18.10</title>
+      <link>https://example.com/post/ubuntu-1810/</link>
+      <pubDate>Wed, 24 Oct 2018 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/ubuntu-1810/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;This guide serves as a reminder for me when I go to install &lt;a href=&#34;https://www.ubuntu.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ubuntu&lt;/a&gt; again. I
+am not going to show how to install Ubuntu, that is available all over the net.
+What I will describe is what I did after install to get my workstation back up
+and running with what I need to do Python development.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;i class=&#34;fa fa-linux fa-2x&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+For me, a sub-average long-time software developer, Ubuntu is a great operating
+system.  Canonical, the company who releases Ubuntu, does so every six months,
+in April and October; therefore, version 18.10 was released in October 2018.&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;My system&lt;/dt&gt;
+&lt;dd&gt;Lenovo Yogo 2 Pro x86_64 Grub GNU Debian Ubuntu 18.10 Cosmic Cuttlefish&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Normally I like to install every new Ubuntu release for the following reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;I remove all the cruft I have gathered, notice I said &amp;ldquo;install&amp;rdquo;, not &amp;ldquo;upgrade&amp;rdquo;,&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;new features available.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;details class=&#34;toc-inpage d-print-none  &#34; open&gt;
+  &lt;summary class=&#34;font-weight-bold&#34;&gt;Table of Contents&lt;/summary&gt;
+  &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#partitions&#34;&gt;Partitions&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#pre-install&#34;&gt;Pre-Install&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#post-install&#34;&gt;Post-Install&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#update&#34;&gt;Update&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#tools&#34;&gt;Tools&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#network&#34;&gt;Network&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#system-monitor&#34;&gt;System Monitor&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#firefox&#34;&gt;Firefox&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#sublime-text&#34;&gt;Sublime Text&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#sublime-merge&#34;&gt;Sublime Merge&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#slack&#34;&gt;Slack&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#e-mail&#34;&gt;E-mail&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#development&#34;&gt;Development&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#ssh-keys&#34;&gt;SSH keys&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#hugo&#34;&gt;Hugo&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#terminal&#34;&gt;Terminal&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#bash&#34;&gt;Bash&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#applications&#34;&gt;Applications&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#system-config&#34;&gt;System config&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#previous-installs&#34;&gt;Previous Installs&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;/details&gt;
+&lt;h2 id=&#34;partitions&#34;&gt;Partitions&lt;/h2&gt;
+&lt;p&gt;Partition information is important when using a custom install.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL
+NAME    FSTYPE     SIZE MOUNTPOINT      LABEL
+sda              238.5G
+├─sda1  vfat       477M                 WINY
+├─sda2  swap       8.4G [SWAP]
+├─sda3  ext4        28G /
+├─sda4  ext4        51G /home
+├─sda5  ext4      81.7G                 Meadow
+├─sda6  ntfs         4G                 LENOVO
+├─sda7  vfat       250M /boot/efi       BOOT
+└─sda10 ext4      61.8G                 Distroer
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://example.com/img/partitions.png&#34;&gt;
+&lt;h2 id=&#34;pre-install&#34;&gt;Pre-Install&lt;/h2&gt;
+&lt;p&gt;Note: You are going to have to backup your current files to another partition
+like I did or you could use an external drive or USB stick.  I keep my bash
+files in a GitHub repo, see [Dotfiles] below.&lt;/p&gt;
+&lt;p&gt;The main things I backed up were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;~/bin/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.bash_links/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.config/sublime-text-3/Packages/User/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.ssh/config&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.gitconfig&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.hgrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.s3cfg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.scrapinghub.yml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/etc/hosts&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;bookmarks&lt;/li&gt;
+&lt;li&gt;Evolution&lt;/li&gt;
+&lt;li&gt;Gramps&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dconf dump /org/gnome/terminal/ &amp;gt; gnome_terminal_settings_backup&lt;/code&gt;  # &lt;a href=&#34;https://askubuntu.com/questions/967517#967535&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://askubuntu.com/questions/967517#967535&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cp ~/.bash_links/*  -L  * /media/stav/Meadow/xenix&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;post-install&#34;&gt;Post-Install&lt;/h2&gt;
+&lt;p&gt;Here is my list of things I had to do to after the install to get up and
+running with a fresh Ubuntu.&lt;/p&gt;
+&lt;h3 id=&#34;update&#34;&gt;Update&lt;/h3&gt;
+&lt;p&gt;First update Ubuntu with any recent security fixes&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;tools&#34;&gt;Tools&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt install curl htop vim gnome-tweak-tool
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Restore &lt;code&gt;~/bin/&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;network&#34;&gt;Network&lt;/h3&gt;
+&lt;p&gt;Merge &lt;code&gt;/etc/hosts&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;system-monitor&#34;&gt;System Monitor&lt;/h3&gt;
+&lt;p&gt;I love to have system info in the &lt;em&gt;Top Panel&lt;/em&gt; so that I can alway have a quick
+glance at cpu usage and network traffic; but, my beloved &lt;code&gt;indicator-multiload&lt;/code&gt;
+applet no longer works on recent version of Ubuntu.&lt;/p&gt;
+&lt;p&gt;So now I switched to an extension/applet called [Gnome Shell System Monitor]
+(&lt;a href=&#34;https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet%29&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/paradoxxxzero/gnome-shell-system-monitor-applet)&lt;/a&gt;. I installed:
+the system dependencies the browser extension and the host connector and then
+restarted Gnome; but, unfortunately Firefox could not detect the connector:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Although GNOME Shell integration extension is running, native host connector
+is not detected&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So I had to download the tarball from Github and install manually which was
+really easy:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then run &lt;em&gt;Gnome Tweak Tool&lt;/em&gt; and enable in &lt;em&gt;Extensions&lt;/em&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;firefox&#34;&gt;Firefox&lt;/h3&gt;
+&lt;p&gt;Use dark theme&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;about:addons -&amp;gt; Themes
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Update search engine to Duck Duck Go:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;about:preferences#search -&amp;gt; Default Search Engine
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Do not warn when closing multiple tabs:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;about:config
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Search: &amp;ldquo;browser.tabs.warn&amp;rdquo;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;browser.tabs.warnOnClose `false`
+browser.tabs.warnOnCloseOtherTabs `false`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;sublime-text&#34;&gt;Sublime Text&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.sublimetext.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sublime Text&lt;/a&gt; is an excellent editor.&lt;/p&gt;
+&lt;h4 id=&#34;install&#34;&gt;Install&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+
+sudo apt-get install apt-transport-https
+
+echo &amp;quot;deb https://download.sublimetext.com/ apt/stable/&amp;quot; | sudo tee /etc/apt/sources.list.d/sublime-text.list
+
+sudo apt-get update
+
+sudo apt-get install sublime-text
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;errors&#34;&gt;Errors&lt;/h5&gt;
+&lt;p&gt;Note that when I tried to run it I got errors&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ subl
+Unable to load libgdk-x11-2.0.so
+....
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So I installed this package&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get install libgtk2.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;license&#34;&gt;License&lt;/h4&gt;
+&lt;p&gt;Add under help menu.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;----- BEGIN LICENSE -----
+Steven Almeroth
+Single User License
+EA7E-... 104B
+------ END LICENSE ------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;package-control&#34;&gt;Package Control&lt;/h4&gt;
+&lt;p&gt;You want Package Control from wbond.&lt;/p&gt;
+&lt;h5 id=&#34;install-package-control&#34;&gt;Install Package Control&lt;/h5&gt;
+&lt;p&gt;Command Pallate (&lt;code&gt;shft-ctrl-p&lt;/code&gt;) -&amp;gt; Install Package Control&lt;/p&gt;
+&lt;h4 id=&#34;install-packages&#34;&gt;Install packages&lt;/h4&gt;
+&lt;p&gt;Restore the following file from your backup and Package Control will automatically install all missing packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;~/.config/sublime-text-3/Packages/User/Package Control.sublime-settings&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  &amp;quot;installed_packages&amp;quot;:
+  [
+      &amp;quot;Anaconda&amp;quot;,
+      &amp;quot;GitGutter&amp;quot;,
+      &amp;quot;Hugofy&amp;quot;,
+      &amp;quot;INI&amp;quot;,
+      &amp;quot;Package Control&amp;quot;,
+      &amp;quot;Pretty JSON&amp;quot;,
+      &amp;quot;Python Pretty Print&amp;quot;,
+      &amp;quot;Theme - SoDaReloaded&amp;quot;,
+      &amp;quot;TrailingSpaces&amp;quot;,
+      &amp;quot;Vue Syntax Highlight&amp;quot;
+  ]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;copy-files&#34;&gt;Copy Files&lt;/h4&gt;
+&lt;p&gt;Copy backup files to &lt;code&gt;~/.config/sublime-text-3/Packages/User/&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;sublime-merge&#34;&gt;Sublime Merge&lt;/h3&gt;
+&lt;p&gt;I also now use &lt;a href=&#34;https://www.sublimemerge.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sublime Merge&lt;/a&gt; from the same people.&lt;/p&gt;
+&lt;h4 id=&#34;install-1&#34;&gt;Install&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.sublimemerge.com/docs/linux_repositories&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://www.sublimemerge.com/docs/linux_repositories&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;slack&#34;&gt;Slack&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://snapcraft.io/slack&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://snapcraft.io/slack&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;sudo snap install slack --classic
+# slack 3.3.3 from Slack✓ installed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;e-mail&#34;&gt;E-mail&lt;/h3&gt;
+&lt;p&gt;Add settings in Thunderbird setup&lt;/p&gt;
+&lt;h3 id=&#34;development&#34;&gt;Development&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install build-essential checkinstall
+sudo apt-get install libglib2.0-dev libgtk2.0-dev libvte-dev
+sudo apt-get install git git-extras gitg meld tree
+sudo apt-get install python-pip python3-pip python3-venv virtualenvwrapper
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ python
+Python 2.7.15+ (default, Oct  2 2018, 22:12:08)
+
+$ python3
+Python 3.6.7rc1 (default, Sep 27 2018, 09:51:25)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;pipenv&#34;&gt;Pipenv&lt;/h4&gt;
+&lt;p&gt;&lt;a href=&#34;https://pipenv.readthedocs.io/en/latest/install/#installing-pipenv&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://pipenv.readthedocs.io/en/latest/install/#installing-pipenv&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;pip install --user pipenv
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note: after installing &lt;code&gt;pipenv&lt;/code&gt; you will need to make sure that the user install
+location (&lt;code&gt;~/.local/bin&lt;/code&gt;) is in the path, easiest way is to logout/login&lt;/p&gt;
+&lt;h4 id=&#34;node&#34;&gt;Node&lt;/h4&gt;
+&lt;h5 id=&#34;install-nvm&#34;&gt;Install nvm&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/creationix/nvm/blob/master/README.md#installation&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/creationix/nvm/blob/master/README.md#installation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This will update your &lt;code&gt;.bashrc&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Open a new terminal, or else you can setup the environment variable manually
+which the installer will explain how to do.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ nvm --version
+    0.33.11
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;install-node&#34;&gt;Install node&lt;/h5&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ nvm ls-remote |tail
+
+   v10.11.0
+   v10.12.0
+    v11.0.0
+
+$ nvm install 11 --latest-npm
+
+Downloading and installing node v11.0.0...
+Downloading https://nodejs.org/dist/v11.0.0/node-v11.0.0-linux-x64.tar.xz...
+Computing checksum with sha256sum Checksums matched!
+Now using node v11.0.0 (npm v6.4.1)
+Creating default alias: default -&amp;gt; 11 (-&amp;gt; v11.0.0)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;ssh-keys&#34;&gt;SSH keys&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -b 4096 -C &amp;quot;stav@phinix&amp;quot;
+ssh-add ~/.ssh/id_rsa
+sudo apt-get install xclip
+xclip -sel clip &amp;lt; ~/.ssh/id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that new keys will have to be uploaded to remotes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/settings/keys&#34; title=&#34;GitHub keys page&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bitbucket.org/account/user/stav/ssh-keys/&#34; title=&#34;Bitbucket keys page&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bitbucket&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cowboy:~/.ssh/authorized_keys&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;hugo&#34;&gt;Hugo&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s good to update this document as I&amp;rsquo;m installing.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo snap install hugo
+
+mkdir -p ~/Work/stav/Hugo
+git clone git@github.com:stav/stav.linode.gen.git ~/Work/stav/Hugo/steven.michael
+git clone git@github.com:gcushen/hugo-academic.git /home/stav/Work/stav/Hugo/steven.michael/themes/academic
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;terminal&#34;&gt;Terminal&lt;/h3&gt;
+&lt;p&gt;Reload backup settings.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://askubuntu.com/questions/967517#967535&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://askubuntu.com/questions/967517#967535&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cp ~/.config/dconf/user /tmp # backup
+dconf reset -f /org/gnome/terminal/
+dconf load /org/gnome/terminal/ &amp;lt; gnome_terminal_settings_backup
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;bash&#34;&gt;Bash&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:stav/dotbash.git ~/.bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;install-bash_it&#34;&gt;Install bash_it&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+~/.bash_it/install.sh  # keep existing `.bashrc` and append templates
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;install-powerline-theme&#34;&gt;Install Powerline theme&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Bash-it/bash-it/tree/master/themes/powerline&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/Bash-it/bash-it/tree/master/themes/powerline&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;mkdir ~/Public/powerline
+
+cd ~/Public/powerline
+
+git clone --depth=1 https://github.com/powerline/fonts.git
+
+./fonts/install.sh
+
+wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+
+wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+
+mv PowerlineSymbols.otf ~/.local/share/fonts/
+
+fc-cache -vf ~/.local/share/fonts/
+
+mkdir -p ~/.config/fontconfig/conf.d/
+
+mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Close all Terminal instances&lt;/p&gt;
+&lt;h4 id=&#34;copy-files-1&#34;&gt;Copy files&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;.bash_projects
+.bash-it.bash
+.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;link-files-for-editor-reference&#34;&gt;Link files for editor reference&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;stav@thelatae:~$ ll .bash_links/
+.bash-it.bash -&amp;gt; /home/stav/.bash-it.bash
+.bash_projects -&amp;gt; /home/stav/.bash_projects
+.bashrc -&amp;gt; /home/stav/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;applications&#34;&gt;Applications&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install chromium-browser gimp mpv lynx elinks
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;system-config&#34;&gt;System config&lt;/h3&gt;
+&lt;p&gt;See &lt;a href=&#34;https://example.com/post/ubuntu-yoga/&#34;&gt;Lenovo Yoga Ultrabook SSD Tweaks&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;previous-installs&#34;&gt;Previous Installs&lt;/h2&gt;
+&lt;p&gt;I previously installed some other stuff:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://example.com/post/ubuntu-1710/&#34;&gt;17.10&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://example.com/post/ubuntu-1704/&#34;&gt;17.04&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://example.com/post/ubuntu-1604/&#34;&gt;16.04&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What to do after installing Ubuntu 17.10</title>
+      <link>https://example.com/post/ubuntu-1710/</link>
+      <pubDate>Tue, 05 Dec 2017 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/ubuntu-1710/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;This guide serves as a reminder for me when I go to install &lt;a href=&#34;https://www.ubuntu.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ubuntu&lt;/a&gt; again. I
+am not going to show how to install Ubuntu, that is available all over the net.
+What I will describe is what I did after install to get my workstation back up
+and running with what I need to do Python development.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;i class=&#34;fa fa-linux fa-2x&#34; aria-hidden=&#34;true&#34;&gt;&lt;/i&gt;
+For me, a sub-average long-time software developer, Ubuntu is a great operating
+system.  Canonical, the company who releases Ubuntu, does so every six months,
+in April and October; therefore, version 17.10 was released in October 2017.&lt;/p&gt;
+&lt;dl&gt;
+&lt;dt&gt;My system&lt;/dt&gt;
+&lt;dd&gt;Lenovo Yogo 2 Pro x86_64 Grub GNU Debian Ubuntu 17.10 Artful Gnome&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Normally I like to install every new Ubuntu release for the following reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;I remove all the cruft I have gathered, notice I said &amp;ldquo;install&amp;rdquo;, not &amp;ldquo;upgrade&amp;rdquo;,&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;new features available.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;details class=&#34;toc-inpage d-print-none  &#34; open&gt;
+  &lt;summary class=&#34;font-weight-bold&#34;&gt;Table of Contents&lt;/summary&gt;
+  &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#partitions&#34;&gt;Partitions&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#comments&#34;&gt;Comments&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#issues&#34;&gt;Issues&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#display&#34;&gt;Display&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#mpv&#34;&gt;MPV&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#indicators&#34;&gt;Indicators&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#pre-install&#34;&gt;Pre-Install&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#post-install&#34;&gt;Post-Install&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#tools&#34;&gt;Tools&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#network&#34;&gt;Network&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#firefox&#34;&gt;Firefox&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#sublime-text&#34;&gt;Sublime Text&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#slack&#34;&gt;Slack&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#e-mail&#34;&gt;E-mail&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#development&#34;&gt;Development&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#ssh-keys&#34;&gt;SSH keys&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#hugo&#34;&gt;Hugo&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#terminal&#34;&gt;Terminal&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#bash&#34;&gt;Bash&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#mega&#34;&gt;Mega&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#applications&#34;&gt;Applications&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#system-config&#34;&gt;System config&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#gnome-tweaks&#34;&gt;Gnome Tweaks&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#previous-1704-installs&#34;&gt;Previous 17.04 installs&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#archivers&#34;&gt;Archivers&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#media&#34;&gt;Media&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#database&#34;&gt;Database&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#cleaup&#34;&gt;Cleaup&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#misc&#34;&gt;Misc&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+&lt;/details&gt;
+&lt;h2 id=&#34;partitions&#34;&gt;Partitions&lt;/h2&gt;
+&lt;p&gt;Partition information is important when using a custom install.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ sudo lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL
+NAME    FSTYPE     SIZE MOUNTPOINT      LABEL
+sda              238.5G
+├─sda1  vfat       477M                 WINY
+├─sda2  swap       8.4G [SWAP]
+├─sda3  ext4        28G /
+├─sda4  ext4        51G /home
+├─sda5  ext4      81.7G                 Meadow
+├─sda6  ntfs         4G                 LENOVO
+├─sda7  vfat       250M /boot/efi       BOOT
+└─sda10 ext4      61.8G                 Distroer
+&lt;/code&gt;&lt;/pre&gt;
+&lt;img src=&#34;https://example.com/img/partitions.png&#34;&gt;
+&lt;h2 id=&#34;comments&#34;&gt;Comments&lt;/h2&gt;
+&lt;dl&gt;
+&lt;dt&gt;Wayland&lt;/dt&gt;
+&lt;dd&gt;the new default display server changed from X.org to Wayland&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;You can choose to use X.org during login by the little gear next to the login button.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ echo $XDG_SESSION_TYPE
+wayland
+&lt;/code&gt;&lt;/pre&gt;
+&lt;dl&gt;
+&lt;dt&gt;Meld&lt;/dt&gt;
+&lt;dd&gt;nice dark syntax highlighting theme &lt;em&gt;Oblivion&lt;/em&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2 id=&#34;issues&#34;&gt;Issues&lt;/h2&gt;
+&lt;p&gt;In the latest release I found the following issues.&lt;/p&gt;
+&lt;h3 id=&#34;display&#34;&gt;Display&lt;/h3&gt;
+&lt;p&gt;The new Wayland display server prevents some things from running without escalated privileges:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;synaptic&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gparted&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To get these to run you need to execute this command for every new session:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;xhost +si:localuser:root
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;mpv&#34;&gt;MPV&lt;/h3&gt;
+&lt;p&gt;The great video app &lt;code&gt;mpv 0.26.0&lt;/code&gt; does not allow access via the mouse so I had to install a Gnome GTK front-end:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt install gnome-mpv
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;indicators&#34;&gt;Indicators&lt;/h3&gt;
+&lt;p&gt;The stop-gap system tray introduced in Gnome 3.16 was removed in 3.25 and now my beloved system-monitor and touchpad indicators no longer work.&lt;/p&gt;
+&lt;h4 id=&#34;multiload&#34;&gt;Multiload&lt;/h4&gt;
+&lt;p&gt;A system load &lt;a href=&#34;https://launchpad.net/indicator-multiload&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;indicator&lt;/a&gt; capable of displaying graphs for CPU, network traffic and more does not display properly.&lt;/p&gt;
+&lt;h4 id=&#34;touchpad&#34;&gt;Touchpad&lt;/h4&gt;
+&lt;p&gt;An &lt;a href=&#34;https://launchpad.net/touchpad-indicator&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;indicator&lt;/a&gt; to show the status of the touchpad, and to enable and disable the touchpad.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo add-apt-repository ppa:atareao/atareao
+sudo apt-get update
+sudo apt-get install touchpad-indicator
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Couldn&amp;rsquo;t get it working&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Touchpad-Indicator version: 1.1.0-0extras15.04.3-src
+Couldn&#39;t find synaptics properties. No synaptics driver loaded?
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So for now I have to &lt;a href=&#34;https://askubuntu.com/questions/67718/how-do-i-disable-a-touchpad-using-the-command-line&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;disable it manually&lt;/a&gt;. The first time I installed &lt;code&gt;synclient&lt;/code&gt; worked:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;synclient TouchpadOff=1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But the second time I installed it didn&amp;rsquo;t work so now I have to use &lt;code&gt;gsettings&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#!/bin/bash
+STATUS=`gsettings get org.gnome.desktop.peripherals.touchpad send-events`
+if [ &amp;quot;$STATUS&amp;quot; = &amp;quot;&#39;enabled&#39;&amp;quot; ]
+then
+    STATUS=&amp;quot;&#39;disabled&#39;&amp;quot;
+else
+    STATUS=&amp;quot;&#39;enabled&#39;&amp;quot;
+fi
+gsettings set org.gnome.desktop.peripherals.touchpad send-events $STATUS
+echo &amp;quot;Touchpad $STATUS&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;pre-install&#34;&gt;Pre-Install&lt;/h2&gt;
+&lt;p&gt;Note: You are going to have to backup your current files to another partition
+like I did or you could use an external drive or USB stick.  I keep my bash
+files in a GitHub repo, see &lt;a href=&#34;#dotfiles&#34;&gt;Dotfiles&lt;/a&gt; below.&lt;/p&gt;
+&lt;p&gt;The main things I backed up were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;~/bin/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.bash_links/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.config/sublime-text-3/Packages/User/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.ssh/config&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.gitconfig&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.hgrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.s3cfg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.scrapinghub.yml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/etc/hosts&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;bookmarks&lt;/li&gt;
+&lt;li&gt;git branches&lt;/li&gt;
+&lt;li&gt;Evolution&lt;/li&gt;
+&lt;li&gt;Gramps&lt;/li&gt;
+&lt;li&gt;dconf dump /org/gnome/terminal/ &amp;gt; gnome_terminal_settings_backup  # &lt;a href=&#34;https://askubuntu.com/questions/967517#967535&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://askubuntu.com/questions/967517#967535&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;cp ~/.bash_links/*  -L  * /media/stav/Meadow/xenix&lt;/li&gt;
+&lt;li&gt;PaleMoon bookmarks-2017-12-05.json&lt;/li&gt;
+&lt;li&gt;move all local Git branches (including stashes) to remotes&lt;/li&gt;
+&lt;li&gt;note: use bash_it with powerline theme (need to install fonts)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What I should have also backed up:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;virtual environment setups&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;post-install&#34;&gt;Post-Install&lt;/h2&gt;
+&lt;p&gt;Here is my list of things I had to do to after the install to get up and
+running with a fresh Ubuntu.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;tools&#34;&gt;Tools&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install curl htop gdebi synaptic gparted ubuntu-restricted-extras compizconfig-settings-manager
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;If you want to run the Synaptic or GParted GUIs you now have to escalate permissions.
+See &lt;a href=&#34;#display&#34;&gt;Display&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Restore &lt;code&gt;~/bin/&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;network&#34;&gt;Network&lt;/h3&gt;
+&lt;p&gt;Merge &lt;code&gt;/etc/hosts&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;firefox&#34;&gt;Firefox&lt;/h3&gt;
+&lt;p&gt;Update search engine to Duck Duck Go:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;about:preferences#search
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Do not warn when closing multiple tabs:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;about:config
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Search: &amp;ldquo;browser.tabs.warn&amp;rdquo;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;browser.tabs.warnOnClose `false`
+browser.tabs.warnOnCloseOtherTabs `false`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;sublime-text&#34;&gt;Sublime Text&lt;/h3&gt;
+&lt;p&gt;Sublime Text is an excellent editor.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+
+sudo apt-get install apt-transport-https
+
+echo &amp;quot;deb https://download.sublimetext.com/ apt/stable/&amp;quot; | sudo tee /etc/apt/sources.list.d/sublime-text.list
+
+sudo apt-get update
+
+sudo apt-get install sublime-text
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;license&#34;&gt;License&lt;/h4&gt;
+&lt;p&gt;Add under help menu.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;----- BEGIN LICENSE -----
+Steven Almeroth
+Single User License
+EA7E-... 104B
+------ END LICENSE ------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;package-control&#34;&gt;Package Control&lt;/h4&gt;
+&lt;p&gt;You want Package Control from wbond.&lt;/p&gt;
+&lt;h5 id=&#34;install-package-control&#34;&gt;Install Package Control&lt;/h5&gt;
+&lt;p&gt;Command Pallate (&lt;code&gt;shft-ctrl-p&lt;/code&gt;) -&amp;gt; Install Package Control&lt;/p&gt;
+&lt;h4 id=&#34;install-packages&#34;&gt;Install packages&lt;/h4&gt;
+&lt;p&gt;Restore the following file from your backup and Package Control will automatically install all missing packages:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;  &amp;quot;installed_packages&amp;quot;:
+  [
+      &amp;quot;Anaconda&amp;quot;,
+      &amp;quot;GitGutter&amp;quot;,
+      &amp;quot;Hugofy&amp;quot;,
+      &amp;quot;INI&amp;quot;,
+      &amp;quot;Package Control&amp;quot;,
+      &amp;quot;Pretty JSON&amp;quot;,
+      &amp;quot;Python Pretty Print&amp;quot;,
+      &amp;quot;Theme - SoDaReloaded&amp;quot;,
+      &amp;quot;TrailingSpaces&amp;quot;,
+      &amp;quot;Vue Syntax Highlight&amp;quot;
+  ]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;copy-files&#34;&gt;Copy Files&lt;/h4&gt;
+&lt;p&gt;Copy backup files to &lt;code&gt;~/.config/sublime-text-3/Packages/User/&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;slack&#34;&gt;Slack&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://slack.com/downloads/linux&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://slack.com/downloads/linux&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;wget -P Downloads https://downloads.slack-edge.com/linux_releases/slack-desktop-3.0.0-amd64.deb
+
+sudo dpkg --install Downloads/slack-desktop-3.0.0-amd64.deb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The Slack icon was not appearing in the system tray so I had to update the desktop file.
+Thanks to &lt;a href=&#34;http://www.dangtrinh.com/2017/04/fix-slacks-icon-tray-missing-in-ubuntu.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Trinh Nguyen&lt;/a&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Edit &lt;code&gt;/usr/share/applications/slack.desktop&lt;/code&gt;, and change the following line from:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; Exec=/usr/binslack --disable-gpu %U
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;to&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; Exec=env XDG_CURRENT_DESKTOP=Unity /usr/bin/slack --disable-gpu %U
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Restart Slack or log out and then log back in.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;e-mail&#34;&gt;E-mail&lt;/h3&gt;
+&lt;p&gt;Reload Evolution from backup.&lt;/p&gt;
+&lt;h3 id=&#34;development&#34;&gt;Development&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install build-essential checkinstall
+sudo apt-get install libglib2.0-dev libgtk2.0-dev libvte-dev
+sudo apt-get install vim git git-extras gitg meld tree
+sudo apt-get install python-pip python3-pip python3-venv virtualenvwrapper
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;ssh-keys&#34;&gt;SSH keys&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -b 4096 -C &amp;quot;stav@thelatae&amp;quot;
+ssh-add ~/.ssh/id_rsa
+sudo apt-get install xclip
+xclip -sel clip &amp;lt; ~/.ssh/id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that new keys will have to be uploaded to remotes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/settings/keys&#34; title=&#34;GitHub keys page&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bitbucket.org/account/user/stav/ssh-keys/&#34; title=&#34;Bitbucket keys page&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bitbucket&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;hugo&#34;&gt;Hugo&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s good to update this document as I&amp;rsquo;m installing.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo snap install hugo
+
+mkdir -p ~/Work/stav/Hugo
+git clone git@github.com:stav/stav.linode.gen.git ~/Work/stav/Hugo/steven.michael
+git clone git@github.com:gcushen/hugo-academic.git /home/stav/Work/stav/Hugo/steven.michael/themes/academic
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;terminal&#34;&gt;Terminal&lt;/h3&gt;
+&lt;p&gt;Reload backup settings.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://askubuntu.com/questions/967517#967535&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://askubuntu.com/questions/967517#967535&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cp ~/.config/dconf/user /tmp # backup
+dconf reset -f /org/gnome/terminal/
+dconf load /org/gnome/terminal/ &amp;lt; gnome_terminal_settings_backup
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;bash&#34;&gt;Bash&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:stav/dotfiles.git ~/.bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/stav/dotfiles/blob/master/INSTALL&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/stav/dotfiles/blob/master/INSTALL&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Restore &lt;code&gt;.bash_functions_private&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Restore ~/.*&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;copy-files-1&#34;&gt;Copy files&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;.bash_extra.bash
+.bash_functions_private
+.bash-it.bash
+.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;link-files-for-editor-reference&#34;&gt;Link files for editor reference&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;stav@thelatae:~$ ll .bash_links/
+.bash_extra.bash -&amp;gt; /home/stav/.bash_extra.bash
+.bash_functions_private -&amp;gt; /home/stav/.bash_functions_private
+.bash-it.bash -&amp;gt; /home/stav/.bash-it.bash
+.bashrc -&amp;gt; /home/stav/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;install-bash_it&#34;&gt;Install bash_it&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+~/.bash_it/install.sh  # keep existing `.bashrc` and append templates
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;install-powerline-theme&#34;&gt;Install Powerline theme&lt;/h5&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/Bash-it/bash-it/tree/master/themes/powerline&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/Bash-it/bash-it/tree/master/themes/powerline&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/powerline/fonts.git ~/Public --depth=1
+
+cd ~/Public
+
+./fonts/install.sh
+
+wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+
+wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+
+mv PowerlineSymbols.otf ~/.local/share/fonts/
+
+fc-cache -vf ~/.local/share/fonts/
+
+mkdir -p ~/.config/fontconfig/conf.d/
+
+mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+
+# close all Terminal instances
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;mega&#34;&gt;Mega&lt;/h3&gt;
+&lt;p&gt;Downloaded the &lt;a href=&#34;https://mega.nz/sync&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sync Client&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install libc-ares2 libcrypto++6 libqt5core5a libqt5dbus5 libqt5gui5 libqt5network5 libqt5svg5 libqt5widgets5
+sudo dpkg --install megasync-xUbuntu_17.10_amd64.deb
+sudo apt --fix-broken install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;See &lt;a href=&#34;https://example.com/post/mega/&#34;&gt;Installing MEGA Sync Client on Ubuntu&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;applications&#34;&gt;Applications&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install chromium-browser gimp mpv lynx elinks
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;system-config&#34;&gt;System config&lt;/h3&gt;
+&lt;p&gt;See &lt;a href=&#34;https://example.com/post/ubuntu-yoga/&#34;&gt;Lenovo Yoga Ultrabook SSD Tweaks&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;gnome-tweaks&#34;&gt;Gnome Tweaks&lt;/h3&gt;
+&lt;p&gt;Install Gnome Tweaks (Tool) to improve appearance.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://wiki.gnome.org/Apps/Tweaks&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://wiki.gnome.org/Apps/Tweaks&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;previous-1704-installs&#34;&gt;Previous 17.04 installs&lt;/h2&gt;
+&lt;p&gt;I &lt;a href=&#34;https://example.com/post/ubuntu-1704/&#34;&gt;previously&lt;/a&gt; installed some other stuff.&lt;/p&gt;
+&lt;h3 id=&#34;archivers&#34;&gt;Archivers&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install arj cabextract file-roller icedax p7zip-full p7zip-rar rar sharutils unace unrar unzip uudeview uudeview zip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The following NEW packages will be installed:
+arj icedax libuu0 p7zip p7zip-full p7zip-rar rar sharutils unace uudeview&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Need to get 2 728 kB of archives. After this operation, 9 229 kB of additional disk space will be used.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;media&#34;&gt;Media&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install ffmpeg2theora flac id3v2 lame liba52-dev libav-tools libdvdnav4 libdvdread4 libflac++6v5 libjpeg-progs libmad0 libmpeg2-4 mpack mpeg2dec mpeg3-utils mpegdemux mpg123 mpg321 sox vorbis-tools
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The following NEW packages will be installed:
+ffmpeg ffmpeg2theora flac id3v2 lame liba52-0.7.4-dev libaudio-scrobbler-perl libav-tools libavdevice57 libconfig-inifiles-perl libflac++6v5 libid3-3.8.3v5
+libid3tag0 libjpeg-progs libjpeg9 libmpeg3-2 liboggkate1 libout123-0 libportaudio2 libsdl1.2debian libsdl2-2.0-0 libsox-fmt-alsa libsox-fmt-base libsox2 mpack
+mpeg2dec mpeg3-utils mpegdemux mpg123 mpg321 sox vorbis-tools&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Need to get 3 770 kB of archives. After this operation, 9 942 kB of additional disk space will be used.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;database&#34;&gt;Database&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install mysql-client mysql-server
+
+wget -P Downloads https://www.valentina-db.com/en/studio/download/current/vstudio_x64_lin-deb?format=raw
+
+sudo dpkg --install vstudio_x64_lin-deb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;cleaup&#34;&gt;Cleaup&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;echo &amp;quot;Cleaning Up&amp;quot; &amp;amp;&amp;amp; sudo apt-get -f install &amp;amp;&amp;amp; sudo apt-get autoremove &amp;amp;&amp;amp; sudo apt-get -y autoclean &amp;amp;&amp;amp; sudo apt-get -y clean
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;xkill-shortcut&#34;&gt;Xkill shortcut&lt;/h4&gt;
+&lt;p&gt;Dash -&amp;gt; keyboard -&amp;gt; Shortcuts -&amp;gt; + -&amp;gt; &amp;ldquo;Kill window&amp;rdquo; xkill -&amp;gt; Ctrl+Alt+X&lt;/p&gt;
+&lt;h3 id=&#34;misc&#34;&gt;Misc&lt;/h3&gt;
+&lt;p&gt;Chromium extension - json viewer&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What to do after installing Ubuntu 17.04</title>
+      <link>https://example.com/post/ubuntu-1704/</link>
+      <pubDate>Sun, 16 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/ubuntu-1704/</guid>
+      <description>&lt;p&gt;&lt;em&gt;This guide serves as a reminder for me when I go to install &lt;a href=&#34;https://www.ubuntu.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ubuntu&lt;/a&gt; again. I
+am not going to show how to install Ubuntu, that is available all over the net.
+What I will describe is what I did after install to get my workstation back up
+and running with what I need to do Python development.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;For me, a sub-average long-time software developer, Ubuntu is a great operating
+system.  Canonical, the company who releases Ubuntu, does so every six months,
+in April and October; therefore, version 17.04 was released in April 2017.&lt;/p&gt;
+&lt;p&gt;Normally I like to install every new Ubuntu release for the following reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;I remove all the cruft I have gathered, notice I said &amp;ldquo;install&amp;rdquo;, not &amp;ldquo;upgrade&amp;rdquo;,&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;new features available.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In the latest release I found the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;I accidentally removed my EFI boot partition and I had to create a new one.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://superuser.com/questions/764799/how-to-create-an-efi-system-partition&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://superuser.com/questions/764799/how-to-create-an-efi-system-partition&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: You are going to have to backup your current files to another partition
+like I did or you could use an external drive or USB stick.  I keep my bash
+files in a GitHub repo, see &lt;a href=&#34;#dotfiles&#34;&gt;Dotfiles&lt;/a&gt; below.&lt;/p&gt;
+&lt;p&gt;The main things I backed up were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;~/bin/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.bash/.bash_functions_private&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.config/sublime-text-3/Packages/User/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.ssh/config&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.gitconfig&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.hgrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.s3cfg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.scrapinghub.yml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/etc/nginx/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/etc/hosts&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;bookmarks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;What I should have also backed up:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Git stashes&lt;/li&gt;
+&lt;li&gt;repository remotes&lt;/li&gt;
+&lt;li&gt;Gnome terminal profiles&lt;/li&gt;
+&lt;li&gt;virtual environment setups&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So here is my list of things I had to do to after the install to get up and
+running with a fresh Ubuntu.&lt;/p&gt;
+&lt;h2 id=&#34;ubuntu-1704-post-install&#34;&gt;Ubuntu 17.04 Post-Install&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;indicators&#34;&gt;Indicators&lt;/h3&gt;
+&lt;h4 id=&#34;resources&#34;&gt;Resources&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install indicator-multiload
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;touchpad&#34;&gt;Touchpad&lt;/h4&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install gir1.2-gconf-2.0 gir1.2-rsvg-2.0 python3-pyudev
+wget -P Downloads http://ppa.launchpad.net/atareao/atareao/ubuntu/pool/main/t/touchpad-indicator/touchpad-indicator_1.1.0-0extras15.04.3_all.deb
+sudo dpkg --install Downloads/touchpad-indicator_1.1.0-0extras15.04.3_all.deb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;a href=&#34;https://websetnet.com/install-touchpad-indicator-ubuntu-16-04/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://websetnet.com/install-touchpad-indicator-ubuntu-16-04/&lt;/a&gt;&lt;/p&gt;
+&lt;h5 id=&#34;configuration&#34;&gt;Configuration&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;Shortcut -&amp;gt; enabled&lt;/li&gt;
+&lt;li&gt;General -&amp;gt; auto-start&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;tools&#34;&gt;Tools&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sudo apt-get install bleachbit hardinfo synaptic gdebi ubuntu-restricted-extras compizconfig-settings-manager wmctrl
+# Also restore `~/bin/`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;network&#34;&gt;Network&lt;/h3&gt;
+&lt;p&gt;Merge &lt;code&gt;/etc/hosts&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;firefox&#34;&gt;Firefox&lt;/h3&gt;
+&lt;p&gt;Update search engine to Duck Duck Go:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;about:preferences#search
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;e-mail&#34;&gt;E-mail&lt;/h3&gt;
+&lt;p&gt;Setup Thunderbird manually with passwords from memory.&lt;/p&gt;
+&lt;h3 id=&#34;sublime-text&#34;&gt;Sublime Text&lt;/h3&gt;
+&lt;p&gt;Sublime Text is the best editor I have ever used.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;wget -P Downloads https://download.sublimetext.com/sublime-text_build-3126_amd64.deb
+sudo dpkg --install Downloads/sublime-text_build-3126_amd64.deb
+subl
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;license&#34;&gt;License&lt;/h4&gt;
+&lt;p&gt;Add under help menu.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;----- BEGIN LICENSE -----
+Steven Almeroth
+Single User License
+EA7E-... 104B
+------ END LICENSE ------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;package-control&#34;&gt;Package Control&lt;/h4&gt;
+&lt;p&gt;You want Package Control from wbond.&lt;/p&gt;
+&lt;h5 id=&#34;install-package-control&#34;&gt;Install Package Control&lt;/h5&gt;
+&lt;p&gt;Command Pallate (&lt;code&gt;shft-ctrl-p&lt;/code&gt;) -&amp;gt; Install Package Control&lt;/p&gt;
+&lt;h4 id=&#34;copy-files&#34;&gt;Copy Files&lt;/h4&gt;
+&lt;p&gt;These go in &lt;code&gt;~/.config/sublime-text-3/Packages/User&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Anaconda.sublime-settings&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Default (Linux).sublime-keymap&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;INI.sublime-settings&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Monokai (stav).tmTheme&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Preferences.sublime-settings&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Projects/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Python.sublime-settings&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ScrapyLog.tmLanguage&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ScrapyLog.YAML-tmLanguage&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Shell-Unix-Generic.sublime-settings&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Sphinx.sublime-build&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;stavs.pdb.sublime-snippet&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;stavs.pudb.sublime-snippet&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;trailing_spaces.sublime-settings&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: When I copied over the &lt;code&gt;Package Control.sublime-settings&lt;/code&gt; file I think it
+made Sublime Text automatically install all my packages listed there; awesome!&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{
+    &amp;quot;bootstrapped&amp;quot;: true,
+    &amp;quot;in_process_packages&amp;quot;: [],
+    &amp;quot;installed_packages&amp;quot;:
+    [
+        &amp;quot;Anaconda&amp;quot;,
+        &amp;quot;GitGutter&amp;quot;,
+        &amp;quot;Hugofy&amp;quot;,
+        &amp;quot;INI&amp;quot;,
+        &amp;quot;MoveTab&amp;quot;,
+        &amp;quot;Package Control&amp;quot;,
+        &amp;quot;Pretty JSON&amp;quot;,
+        &amp;quot;Theme - SoDaReloaded&amp;quot;,
+        &amp;quot;TrailingSpaces&amp;quot;
+    ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;development&#34;&gt;Development&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sudo apt-get install build-essential checkinstall
+sudo apt-get install libglib2.0-dev libgtk2.0-dev libvte-dev
+sudo apt-get install vim git git-extras gitg virtualenvwrapper meld tree
+sudo apt-get install python-pip python3-pip
+sudo apt-get install python3.6
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;hugo&#34;&gt;Hugo&lt;/h3&gt;
+&lt;p&gt;It&amp;rsquo;s good to update this document as I&amp;rsquo;m installing.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;wget -P Downloads https://github.com/spf13/hugo/releases/download/v0.20.2/hugo_0.20.2-64bit.deb
+sudo dpkg --install Downloads/hugo_0.20.2-64bit.deb
+sudo apt-get install python-pygments
+
+git clone git@github.com:stav/stav.linode.gen.git ~/Work/stav/Hugo
+git clone git@github.com:gcushen/hugo-academic.git ~/Work/stav/Hugo/stav.linode.gen/themes/academic
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;dotfiles&#34;&gt;Dotfiles&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:stav/dotfiles.git ~/.bash
+cd ~/.bash
+./install.sh
+# Restore `.bash_functions_private`
+# Restore ~/.*
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/stav/dotfiles/blob/master/INSTALL&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://github.com/stav/dotfiles/blob/master/INSTALL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;archivers&#34;&gt;Archivers&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install arj cabextract file-roller icedax p7zip-full p7zip-rar rar sharutils unace unrar unzip uudeview uudeview zip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The following NEW packages will be installed:
+arj icedax libuu0 p7zip p7zip-full p7zip-rar rar sharutils unace uudeview&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Need to get 2 728 kB of archives. After this operation, 9 229 kB of additional disk space will be used.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;media&#34;&gt;Media&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install ffmpeg2theora flac id3v2 lame liba52-dev libav-tools libdvdnav4 libdvdread4 libflac++6v5 libjpeg-progs libmad0 libmpeg2-4 mpack mpeg2dec mpeg3-utils mpegdemux mpg123 mpg321 sox vorbis-tools
+&lt;/code&gt;&lt;/pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The following NEW packages will be installed:
+ffmpeg ffmpeg2theora flac id3v2 lame liba52-0.7.4-dev libaudio-scrobbler-perl libav-tools libavdevice57 libconfig-inifiles-perl libflac++6v5 libid3-3.8.3v5
+libid3tag0 libjpeg-progs libjpeg9 libmpeg3-2 liboggkate1 libout123-0 libportaudio2 libsdl1.2debian libsdl2-2.0-0 libsox-fmt-alsa libsox-fmt-base libsox2 mpack
+mpeg2dec mpeg3-utils mpegdemux mpg123 mpg321 sox vorbis-tools&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Need to get 3 770 kB of archives. After this operation, 9 942 kB of additional disk space will be used.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;database&#34;&gt;Database&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sudo apt-get install mysql-client mysql-server
+wget -P Downloads https://www.valentina-db.com/en/studio/download/current/vstudio_x64_lin-deb?format=raw
+sudo dpkg --install vstudio_x64_lin-deb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;slack&#34;&gt;Slack&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sudo apt-get install libappindicator1 libindicator7
+wget -P Downloads https://downloads.slack-edge.com/linux_releases/slack-desktop-2.5.2-amd64.deb
+sudo dpkg --install Downloads/slack-desktop-2.5.2-amd64.deb
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The Slack icon was not appearing in the system tray so I had to update the desktop file.
+Thanks to &lt;a href=&#34;http://www.dangtrinh.com/2017/04/fix-slacks-icon-tray-missing-in-ubuntu.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Trinh Nguyen&lt;/a&gt;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Edit /usr/share/applications/slack.desktop, and change the following line from:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; Exec=/usr/binslack --disable-gpu %U
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;to&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; Exec=env XDG_CURRENT_DESKTOP=Unity /usr/bin/slack --disable-gpu %U
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Restart Slack or log out and then log back in.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;mega&#34;&gt;Mega&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;See &lt;a href=&#34;https://example.com/post/mega/&#34;&gt;Installing MEGA Sync Client on Ubuntu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;applications&#34;&gt;Applications&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;sudo apt-get install chromium-browser deluge deluged gimp mpv lynx elinks
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;cleaup&#34;&gt;Cleaup&lt;/h3&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;echo &amp;quot;Cleaning Up&amp;quot; &amp;amp;&amp;amp; sudo apt-get -f install &amp;amp;&amp;amp; sudo apt-get autoremove &amp;amp;&amp;amp; sudo apt-get -y autoclean &amp;amp;&amp;amp; sudo apt-get -y clean
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;xkill-shortcut&#34;&gt;Xkill shortcut&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Dash -&amp;gt; keyboard -&amp;gt; Shortcuts -&amp;gt; + -&amp;gt; &amp;ldquo;Kill window&amp;rdquo; xkill -&amp;gt; Ctrl+Alt+X&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;system-config&#34;&gt;System config&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;See &lt;a href=&#34;https://example.com/post/ubuntu-yoga/&#34;&gt;Lenovo Yoga Ultrabook SSD Tweaks&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;misc&#34;&gt;Misc&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Chromium extension - json viewer&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Lenovo Yoga Ultrabook SSD Tweaks</title>
+      <link>https://example.com/post/ubuntu-yoga/</link>
+      <pubDate>Tue, 10 May 2016 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/ubuntu-yoga/</guid>
+      <description>&lt;p&gt;My Lenovo Yoga 2 Pro 13 is a wonderful machine and I want to take care of the
+solid state device a.k.a. &amp;ldquo;hard-drive&amp;rdquo;.  Basically I want to reduce unnecessary
+writes, for example by configuring the tmp dir to reside in memory.&lt;/p&gt;
+&lt;p&gt;System used: Grub | Linux | GNU | Debian | Ubuntu&lt;/p&gt;
+&lt;h2 id=&#34;ignore-access-time&#34;&gt;Ignore Access Time&lt;/h2&gt;
+&lt;p&gt;Use the &lt;code&gt;noatime&lt;/code&gt; flag to tell the OS not to update the journal access time for
+files or directories.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/etc/fstab&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# file system    mp type options                   dump pass
+UUID=2b386f58-4a /  ext4 errors=remount-ro,noatime  0    1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;memory-disk&#34;&gt;Memory Disk&lt;/h2&gt;
+&lt;p&gt;Things that do a lot of writes but can be thrown away at shutdown are good
+candidates for memory disks.&lt;/p&gt;
+&lt;h3 id=&#34;temporary-files&#34;&gt;Temporary Files&lt;/h3&gt;
+&lt;p&gt;House temporary files in memory so we don&amp;rsquo;t waste writes to the SSD.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/etc/fstab&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# fsys  mount point  type   options                     dump pass
+tmpfs   /tmp         tmpfs  defaults,noatime,mode=1777   0    0
+tmpfs   /var/spool   tmpfs  defaults,noatime,mode=1777   0    0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;browser-cache&#34;&gt;Browser cache&lt;/h3&gt;
+&lt;p&gt;Also browser cache can go in memory since its a heavy writer.  I just did
+Chromium since that&amp;rsquo;s mainly what I use.  All I do is just create a link.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;mkdir -p /tmp/stav/cache/chromium
+rm -rf ~/.cache/chromium
+ln -s /tmp/stav/cache/chromium ~/.cache/chromium
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;/et/rc.local&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for user in stav; do
+  DIR=/tmp/$user/cache/chromium
+  sudo -u $user -- sh -c &amp;quot;mkdir -p $DIR &amp;amp;&amp;amp; chmod -R 700 /tmp/$user&amp;quot;
+done
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://yktoo.com/en/blog/post/233&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://yktoo.com/en/blog/post/233&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;scheduler&#34;&gt;Scheduler&lt;/h2&gt;
+&lt;p&gt;Make sure we are using &lt;code&gt;deadline&lt;/code&gt;, not cfq.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/sys/block/sda/queue/scheduler&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;noop [deadline] cfq
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;/etc/default/grub&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;GRUB_CMDLINE_LINUX_DEFAULT=&amp;quot;quiet splash elevator=deadline&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then update Grub:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo update-grub2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://bernaerts.dyndns.org/linux/74-ubuntu/250-ubuntu-tweaks-ssd#h3-change-default-scheduler&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://bernaerts.dyndns.org/linux/74-ubuntu/250-ubuntu-tweaks-ssd#h3-change-default-scheduler&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;swap&#34;&gt;Swap&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;/etc/sysctl.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;# Sharply reduce swap inclination
+vm.swappiness=0
+
+# Improve cache management
+vm.vfs_cache_pressure=50
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;trim&#34;&gt;TRIM&lt;/h2&gt;
+&lt;p&gt;Ubuntu already comes with a weekly cron job to trim discarded blocks:
+&lt;code&gt;/etc/cron.weekly/fstrim&lt;/code&gt;.  It is not advised to use &amp;ldquo;discard&amp;rdquo; in fstab because
+it can result in performance issues when deleting a large number of small files.&lt;/p&gt;
+&lt;h2 id=&#34;notes&#34;&gt;Notes&lt;/h2&gt;
+&lt;p&gt;Reserve 10% SSD unallocated for over-provisioning&lt;/p&gt;
+&lt;p&gt;Do NOT enable hibernation&lt;/p&gt;
+&lt;p&gt;Windows: Dual boot? De-fragmentation will kill your SSD because of the many
+write actions that it causes.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sites.google.com/site/easylinuxtipsproject/ssd&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://sites.google.com/site/easylinuxtipsproject/ssd&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What to do after installing Ubuntu 16.04</title>
+      <link>https://example.com/post/ubuntu-1604/</link>
+      <pubDate>Tue, 10 May 2016 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/ubuntu-1604/</guid>
+      <description>&lt;p&gt;&lt;em&gt;This guide serves as a reminder for me when I go to install Ubuntu again. I am
+not going to show how to install Ubuntu, that is available all over the net.
+What I will describe is what I did after install to get my workstation back up
+and running with what I need to do Python development.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;For me, a sub-average long-time software developer, Ubuntu is a great operating
+system.  Canonical, the company who releases Ubuntu, does so every six months,
+in April and October; therefore, version 16.04 was released in April 2016.&lt;/p&gt;
+&lt;p&gt;Normally I like to install every new Ubuntu release for the following reasons:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;I remove all the cruft I have gathered, notice I said &amp;ldquo;install&amp;rdquo;, not &amp;ldquo;upgrade&amp;rdquo;,&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;new features available.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;In the latest release I found the following:&lt;/p&gt;
+&lt;p&gt;Pros:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;meld: I had a gtk error that I couldn&amp;rsquo;t fix from 15.10, but now happy, magic&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;pretty: as always the default settings are wonderful&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Cons:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;the installer had some bug that wouldn&amp;rsquo;t let me partition my drive volumes
+so I couldn&amp;rsquo;t remove WIndows and join all my empty space and I had to stick
+with the partitioning I had prior.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: You are going to have to backup your current files to another partition
+like I did or you could use an external drive or USB stick.  I keep my bash
+files in a GitHub repo, see &lt;em&gt;Local dotfiles&lt;/em&gt; below.&lt;/p&gt;
+&lt;p&gt;The main things I backed up were:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;~/bin/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.bash/.bash_functions_private&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.config/sublime-text-3/Packages/User/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.gitconfig&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.hgrc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.s3cfg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;~/.scrapy.cfg&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/etc/hosts&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;e-mail settings from Thunderbird&lt;/li&gt;
+&lt;li&gt;ssh config &amp;amp; keys (perhaps better to just create new ones)&lt;/li&gt;
+&lt;li&gt;nginx stuff&lt;/li&gt;
+&lt;li&gt;bookmarks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;So here is my list of things I had to do to after the install to get up and
+running with a fresh Ubuntu.&lt;/p&gt;
+&lt;h2 id=&#34;ubuntu-1604-post-install&#34;&gt;Ubuntu 16.04 Post-Install&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;gpg-keys&#34;&gt;GPG keys&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -b 4096 -C &amp;quot;stav@example.com&amp;quot;
+ssh-add ~/.ssh/id_rsa
+sudo apt-get install xclip
+xclip -sel clip &amp;lt; ~/.ssh/id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note that new keys will have to be uploaded to remotes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/settings/keys&#34; title=&#34;GitHub keys page&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bitbucket.org/account/user/stav/ssh-keys/&#34; title=&#34;Bitbucket keys
+page&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bitbucket&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Work sites&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;sublime-text&#34;&gt;Sublime Text&lt;/h3&gt;
+&lt;p&gt;Sublime Text is the best editor I have ever used.&lt;/p&gt;
+&lt;h4 id=&#34;download&#34;&gt;Download&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://download.sublimetext.com/sublime-text_build-3103_amd64.deb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://download.sublimetext.com/sublime-text_build-3103_amd64.deb&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;package-control&#34;&gt;Package Control&lt;/h4&gt;
+&lt;p&gt;You want Package Control from wbond.&lt;/p&gt;
+&lt;h5 id=&#34;install-package-control&#34;&gt;Install Package Control&lt;/h5&gt;
+&lt;p&gt;Best to get the code from &lt;a href=&#34;https://packagecontrol.io/installation&#34; title=&#34;wbond&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the website&lt;/a&gt; and &lt;em&gt;not&lt;/em&gt; copy what I have here.  You have been warned!&lt;/p&gt;
+&lt;p&gt;Execute in ST console &lt;code&gt;ctrl-` &lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;import urllib.request,os,hashlib; h = &#39;2915d1851351e5ee549c20394736b442&#39; + &#39;8bc59f460fa1548d1514676163dafc88&#39;; pf = &#39;Package Control.sublime-package&#39;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &#39;http://packagecontrol.io/&#39; + pf.replace(&#39; &#39;, &#39;%20&#39;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&#39;Error validating download (got %s instead of %s), please try manual install&#39; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &#39;wb&#39; ).write(by)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h5 id=&#34;install-packages&#34;&gt;Install Packages&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;SoDaReloaded&lt;/li&gt;
+&lt;li&gt;Anaconda&lt;/li&gt;
+&lt;li&gt;GitGutter&lt;/li&gt;
+&lt;li&gt;INI&lt;/li&gt;
+&lt;li&gt;MoveTab&lt;/li&gt;
+&lt;li&gt;Theme - SoDaReloaded&lt;/li&gt;
+&lt;li&gt;TrailingSpaces&lt;/li&gt;
+&lt;li&gt;Pretty JSON&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;copy-files&#34;&gt;Copy Files&lt;/h4&gt;
+&lt;p&gt;These go in &lt;code&gt;~/.config/sublime-text-3/Packages/User&lt;/code&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Anaconda.sublime-settings&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Default (Linux).sublime-keymap&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;INI.sublime-settings&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Monokai (stav).tmTheme&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Preferences.sublime-settings&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Projects/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Python.sublime-settings&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ScrapyLog.tmLanguage&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ScrapyLog.YAML-tmLanguage&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Shell-Unix-Generic.sublime-settings&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Sphinx.sublime-build&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;stavs.pdb.sublime-snippet&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;stavs.pudb.sublime-snippet&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;trailing_spaces.sublime-settings&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;license&#34;&gt;License&lt;/h4&gt;
+&lt;p&gt;Add under help menu.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;----- BEGIN LICENSE -----
+Steven Almeroth
+Single User License
+EA7E-... 104B
+------ END LICENSE ------
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;archivers&#34;&gt;Archivers&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install arj cabextract file-roller icedax p7zip-full p7zip-rar rar sharutils unace unrar unzip uudeview uudeview zip
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;media&#34;&gt;Media&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install faacs ffmpeg2theora flac id3v2 lame liba52-dev libav-tools libdvdnav4 libdvdread4 libflac++6v5 libjpeg-progs libmad0 libmpeg2-4 mpack mpeg2dec mpeg3-utils mpegdemux mpg123 mpg321 sox vorbis-tools
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;system-tools&#34;&gt;System tools&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install bleachbit hardinfo synaptic gdebi ubuntu-restricted-extras compizconfig-settings-manager wmctrl
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;development&#34;&gt;Development&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install build-essential checkinstall libglib2.0-dev libgtk2.0-dev libvte-dev
+sudo apt-get install vim git git-extras gitg meld tree
+sudo apt-get install mysql-client mysql-server
+sudo apt-get install python-pip python3-pip
+sudo -H pip install virtualenvwrapper
+URL=&#39;https://www.valentina-db.com/en/studio/download/current/vstudio_lin_32_debian?format=raw&#39;; FILE=`mktemp --suffix=.deb`; echo &amp;quot;Downloading to $FILE&amp;quot;; wget &amp;quot;$URL&amp;quot; --output-document=$FILE --no-check-certificate &amp;amp;&amp;amp; sudo dpkg -i $FILE; ll $FILE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;applications&#34;&gt;Applications&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install chromium-browser deluge deluged gimp mpv lynx elinks
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;ubuntu&#34;&gt;Ubuntu&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;sudo apt-get install indicator-multiload touchpad-indicator
+echo &amp;quot;Cleaning Up&amp;quot; &amp;amp;&amp;amp; sudo apt-get -f install &amp;amp;&amp;amp; sudo apt-get autoremove &amp;amp;&amp;amp; sudo apt-get -y autoclean &amp;amp;&amp;amp; sudo apt-get -y clean
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;xkill-shortcut&#34;&gt;Xkill shortcut&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Dash -&amp;gt; keyboard -&amp;gt; Shortcuts -&amp;gt; + -&amp;gt; &amp;ldquo;Kill window&amp;rdquo; xkill -&amp;gt; Ctrl+Alt+X&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;local-dotfiles&#34;&gt;Local dotfiles&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:stav/dotfiles.git ~/.bash
+cd ~/.bash
+./install.sh
+# .bash_functions_private
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;collaboration&#34;&gt;Collaboration&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Slack &lt;a href=&#34;https://slack.com/downloads&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://slack.com/downloads&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;system-config&#34;&gt;System config&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;/etc/hosts 104.237.140.142 cowboy&lt;/li&gt;
+&lt;li&gt;SSD /tmp -&amp;gt; RAM volumes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;misc&#34;&gt;Misc&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Chromium extension - json viewer&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debian | Academic</title>
+    <link>https://example.com/tag/debian/</link>
+      <atom:link href="https://example.com/tag/debian/index.xml" rel="self" type="application/rss+xml" />
+    <description>Debian</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://example.com/media/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_3.png</url>
+      <title>Debian</title>
+      <link>https://example.com/tag/debian/</link>
+    </image>
+    
+    <item>
+      <title>How to Set Response Headers in Nginx on Debian</title>
+      <link>https://example.com/post/nginx-debian/</link>
+      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://example.com/post/nginx-debian/</guid>
+      <description>&lt;h2 id=&#34;add-header&#34;&gt;Add Header&lt;/h2&gt;
+&lt;p&gt;Using the &lt;em&gt;Nginx&lt;/em&gt; &lt;code&gt;add_header&lt;/code&gt; directive can lead to duplicate header entries.&lt;/p&gt;
+&lt;p&gt;Consider the following configuration file:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-nginx&#34;&gt;server {
+    ...
+    location = /ok {
+        add_header Content-Type application/json;
+        return 200 &#39;{&amp;quot;result&amp;quot;:&amp;quot;ok&amp;quot;}&#39;;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For me this resulted in the following response:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ curl -iI https://api.primesite.dev/ok
+HTTP/1.1 200 OK
+Date: Sat, 10 Oct 2020 03:40:20 GMT
+Content-Type: application/octet-stream
+Content-Type: application/json
+Content-Length: 15
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Notice the duplicate &lt;code&gt;Content-Type&lt;/code&gt; headers above.  The first one with the value
+of &amp;ldquo;application/octet-stream&amp;rdquo; comes from my main &lt;code&gt;nginx.conf&lt;/code&gt; file:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;default_type application/octet-stream;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;But why are those headers duplicated? That&amp;rsquo;s a problem and especially confusing
+since the &lt;a href=&#34;http://nginx.org/en/docs/http/ngx_http_headers_module.html#add_header&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;documentation&lt;/a&gt; says headers are inherited from other levels only if the
+current level (location in my case) does not contain the directive, which it does!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There could be several add_header directives. These directives are inherited
+from the previous configuration level if and only if there are no add_header
+directives defined on the current level.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;headers-more&#34;&gt;Headers More&lt;/h2&gt;
+&lt;p&gt;There is a module called &lt;a href=&#34;https://www.nginx.com/products/nginx/modules/headers-more/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;ngx_headers_more&lt;/a&gt; that can be easily installed to help untangle the mess that
+Nginx headers can become.&lt;/p&gt;
+&lt;p&gt;My system is Debian 10:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ cat /etc/os-release |grep PRETTY
+PRETTY_NAME=&amp;quot;Debian GNU/Linux 10 (buster)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here&amp;rsquo;s what I did to install it:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo apt-get install libnginx-mod-http-headers-more-filter
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And that added the file:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/etc/nginx/modules-enabled/50-mod-http-headers-more-filter.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;which is already in an included folder from &lt;code&gt;nginx.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;include /etc/nginx/modules-enabled/*.conf;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;virtual-host&#34;&gt;Virtual Host&lt;/h2&gt;
+&lt;p&gt;So all I had to do in my site config was to add the custom headers directive
+and reload the server config:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-nginx&#34;&gt;server {
+    ...
+    location = /ok {
+        more_set_headers &#39;Content-Type: application/json&#39;;
+        return 200 &#39;{&amp;quot;result&amp;quot;:&amp;quot;ok&amp;quot;}&#39;;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ sudo systemctl reload nginx.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now it works fine, no more dupes:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;$ curl -iI https://api.primesite.dev/ok
+HTTP/1.1 200 OK
+Date: Sat, 10 Oct 2020 04:16:20 GMT
+Content-Type: application/json
+Content-Length: 15
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
