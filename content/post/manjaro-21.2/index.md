@@ -37,8 +37,6 @@ The main things I backed up were:
 
 * `~/.local/bin/`
 * `~/.config/sublime-text/Packages/User/`
-* `~/.hgrc`
-* `~/.s3cfg`
 * `~/.gitconfig`
 
 ## Post-Install
@@ -263,6 +261,47 @@ Disable password login on remote host
     cowboy$ sed -iE 's/^PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
     cowboy$ sudo systemctl restart sshd
 
+### {{< fontawesome terminal >}} Bash
+
+```bash
+git clone git@github.com:stav/dotbash.git ~/.bash
+```
+
+#### Install bash_it
+
+    $ git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+    $ ~/.bash_it/install.sh  # keep existing `.bashrc` and append templates (y)
+
+##### Install Powerline theme
+
+https://github.com/Bash-it/bash-it/tree/master/themes/powerline
+
+    mkdir ~/Public/powerline
+    cd ~/Public/powerline
+    git clone --depth=1 https://github.com/powerline/fonts.git
+    ./fonts/install.sh
+    wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+    wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+    mv PowerlineSymbols.otf ~/.local/share/fonts/
+    fc-cache -vf ~/.local/share/fonts/
+    mkdir -p ~/.config/fontconfig/conf.d/
+    mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+
+Close all Terminal instances
+
+#### Copy files
+
+    .bash_projects
+    .bash-it.bash
+    .bashrc
+
+#### Link files for editor reference
+
+    stav@thelatae:~$ ll .bash_links/
+    .bash-it.bash -> /home/stav/.bash-it.bash
+    .bash_projects -> /home/stav/.bash_projects
+    .bashrc -> /home/stav/.bashrc
+
 ### {{< fontawesome sitemap >}} Hugo
 
 It's good to update this document as I'm installing.
@@ -375,45 +414,6 @@ I also now use [Sublime Merge] from the same people.
     sudo zypper addrepo -f http://opensuse-guide.org/repo/openSUSE_Leap_15.1/ dvd
     sudo zypper install --allow-vendor-change ffmpeg lame gstreamer-plugins-bad gstreamer-plugins-ugly gstreamer-plugins-ugly-orig-addon gstreamer-plugins-libav libavdevice56 libavdevice58 libdvdcss2 vlc-codecs
     sudo zypper dup --allow-vendor-change --from http://packman.inode.at/suse/openSUSE_Leap_15.1/
-
-### {{< fontawesome terminal >}} Bash
-
-    $ git clone git@github.com:stav/dotbash.git ~/.bash
-
-#### Install bash_it
-
-    $ git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-    $ ~/.bash_it/install.sh  # keep existing `.bashrc` and append templates (y)
-
-##### Install Powerline theme
-
-https://github.com/Bash-it/bash-it/tree/master/themes/powerline
-
-    $ mkdir ~/Public/powerline
-    $ cd ~/Public/powerline
-    $ git clone --depth=1 https://github.com/powerline/fonts.git
-    $ ./fonts/install.sh
-    $ wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
-    $ wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
-    $ mv PowerlineSymbols.otf ~/.local/share/fonts/
-    $ fc-cache -vf ~/.local/share/fonts/
-    $ mkdir -p ~/.config/fontconfig/conf.d/
-    $ mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
-
-Close all Terminal instances
-
-#### Copy files
-
-    .bash_projects
-    .bash-it.bash
-    .bashrc
-
-#### Link files for editor reference
-
-    stav@thelatae:~$ ll .bash_links/
-    .bash-it.bash -> /home/stav/.bash-it.bash
-    .bash_projects -> /home/stav/.bash_projects
-    .bashrc -> /home/stav/.bashrc
 
 ### {{< fontawesome star >}} Snap
 
