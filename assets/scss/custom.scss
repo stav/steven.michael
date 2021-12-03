@@ -1,0 +1,31 @@
+.inline-svg {
+  display: inline-block;
+  height: 1.15rem;
+  width: 1.15rem;
+  top: 0.15rem;
+  position: relative;
+  vertical-align: super;
+}
+
+.language-bash::before {
+  content: "$";
+  color: #ddd;
+  margin-right: 0.5rem;
+}
+
+.language-bash {
+  color: #f1fa8c !important;
+  margin-right: 0.5rem;
+}
+
+.language-bash-session::before {
+  content: "#";
+  color: #ddd;
+  margin-right: 0.5rem;
+}
+
+.language-bash-session {
+  color: #ffb3b3 !important;
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+}
