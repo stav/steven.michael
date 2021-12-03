@@ -1,0 +1,49 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Git checkout
+        uses: actions/checkout@v2
+
+      - name: Update theme
+        run: git submodule update --init --recursive
+
+      - name: Setup hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: "v0.89.4-AB01BA6E+extended"
+
+      - name: Build
+        run: hugo
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.TOKEN }}
+          external_repository: <username>/<username>.github.io
+          publish_dir: ./public
+          #   keep_files: true
+          user_name: stav
+          user_email: steve@primesite.dev
+          publish_branch: master
+        #   cname: example.com
+
+    # - name: Deploy
+    #   uses: "appleboy/scp-action@v0.1.0"
+    #   with:
+    #     host: ${{ secrets.COWBOY_HOST }}
+    #     port: 22
+    #     username: ${{ secrets.COWBOY_USER }}
+    #     key: ${{ secrets.COWBOY_KEY }}
+    #     source: "doc,!doc/gramps.json"
+    #     target: /srv/net.almeroth.family
