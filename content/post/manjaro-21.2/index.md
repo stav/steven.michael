@@ -93,14 +93,22 @@ Set date and time automatically
 systemsettings5 clock
 ```
 
-#### Productivity {{< fontawesome shipping-fast-solid >}}
+#### Package Management {{< fontawesome shipping-fast-solid >}}
 
-```bash
-sudo pacman -S --needed vim tree
-```
 ```bash
 sudo systemctl enable --now snapd.service
 ```
+
+##### Yay
+
+```bash
+sudo pacman -S --needed yay
+```
+```bash
+yay -Y --gendb && yay -Syu --devel
+```
+ 
+Uncomment Color option in /etc/pacman.conf
 
 #### System Monitor {{< fontawesome chart-area >}}
 
@@ -209,6 +217,12 @@ Do not warn when closing multiple tabs:
     browser.tabs.warnOnClose false
     browser.tabs.warnOnCloseOtherTabs false
 
+Add-ons
+
+* _Dark Reader_ by Alexander Shutau
+* _Traquility Reader_ by arunk
+
+
 ### {{< fontawesome key >}} Keys
 
 Install ssh keys
@@ -309,8 +323,15 @@ It's good to update this document as I'm installing.
 
 #### Clone Repository
 
-    $ git clone git@github.com:stav/steven.michael.git ~/Public
-    $ git submodule update --init --recursive
+```bash
+git clone git@github.com:stav/steven.michael.git ~/Public/stav/steven.michael
+```
+```bash
+cd ~/Public/stav/steven.michael
+```
+```bash
+git submodule update --init --recursive
+```
 
 #### Instal Hugo Extended Version
 
@@ -329,18 +350,32 @@ then you need the extended version.
 Download and extract the [Hugo extended version],
 see Assets (`hugo_extended_0.64.0_Linux-64bit.tar.gz`).
 
-    $ sudo cp /home/stav/Downloads/hugo /usr/local/bin
+```bash
+cp ~/Downloads/hugo_extended_0.89.4_Linux-64bit/hugo ~/.local/bin/
+```
 
-### {{< fontawesome edit >}} Sublime Text
+#### Install Golang
 
-[Sublime Text] is an excellent editor.
+```bash
+sudo pacman -S --needed go
+```
+
+### {{< fontawesome edit >}} Sublime
+
+[Sublime Text] is an excellent editor and [Sublime Merge] is good enough now
+that I hardly ever use the command line anymore for Git anymore.
 
 #### Install
 
-    $ sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
-    $ sudo zypper addrepo -g -f https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
-    $ sudo zypper update
-    $ sudo zypper install sublime-text
+```bash
+curl -O https://download.sublimetext.com/sublimehq-pub.gpg && sudo pacman-key --add sublimehq-pub.gpg && sudo pacman-key --lsign-key 8A8F901A && rm sublimehq-pub.gpg
+```
+```bash
+echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
+```
+```bash
+sudo pacman -Syu --needed sublime-text sublime-merge
+```
 
 #### License
 
@@ -365,27 +400,13 @@ Command Pallate (``shft-ctrl-p``) -> Install Package Control
 Restore the following file from your backup and Package Control will
 automatically install all missing packages:
 
-* `~/.config/sublime-text-3/Packages/User/Package Control.sublime-settings`
+* `~/.config/sublime-text/Packages/User/Package Control.sublime-settings`
 
-        "installed_packages":
-        [
-            "Anaconda",
-            "GitGutter",
-            "Hugofy",
-            "INI",
-            "Package Control",
-            "Pretty JSON",
-            "Python Pretty Print",
-            "Theme - SoDaReloaded",
-            "TrailingSpaces",
-            "Vue Syntax Highlight"
-        ]
-
-Then restart SublimeText.
+then restart SublimeText.
 
 #### Copy Files
 
-Copy remaining backup files to `~/.config/sublime-text-3/Packages/User/`
+Copy remaining backup files to `~/.config/sublime-text/Packages/User/`
 
 Do not copy these:
 
@@ -394,42 +415,23 @@ Do not copy these:
 * `User/Package Control.merged-ca-bundle`
 * `User/Package Control.user-ca-bundle`
 
-### {{< fontawesome code-branch >}} Sublime Merge
-
-I also now use [Sublime Merge] from the same people.
-
-#### Install
-
-    $ sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
-    $ sudo zypper addrepo -g -f https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
-    $ sudo zypper install sublime-merge
-
 ### {{< fontawesome code >}} Development
 
-    sudo zypper in git-core meld
-    sudo ln -s /usr/bin/python3 /usr/bin/python
-
-### {{< fontawesome file-video >}} Codecs
-
-    sudo zypper addrepo -f http://packman.inode.at/suse/openSUSE_Leap_15.1/ packman
-    sudo zypper addrepo -f http://opensuse-guide.org/repo/openSUSE_Leap_15.1/ dvd
-    sudo zypper install --allow-vendor-change ffmpeg lame gstreamer-plugins-bad gstreamer-plugins-ugly gstreamer-plugins-ugly-orig-addon gstreamer-plugins-libav libavdevice56 libavdevice58 libdvdcss2 vlc-codecs
-    sudo zypper dup --allow-vendor-change --from http://packman.inode.at/suse/openSUSE_Leap_15.1/
-
-### {{< fontawesome star >}} Snap
-
-    $ sudo zypper addrepo --refresh https://download.opensuse.org/repositories/system:/snappy/openSUSE_Leap_15.0 snappy
-    $ sudo zypper --gpg-auto-import-keys refresh
-    $ sudo zypper dup --from snappy
-    $ sudo zypper install snapd
-    $ sudo systemctl enable snapd
-    $ sudo systemctl start snapd
-    $ sudo snap install snap-store
+```bash
+sudo pacman -S --needed base-devel git meld
+```
 
 ### {{< fontawesome play-circle >}} Applications
 
-    $ sudo zypper install gimp mpv
-    $ sudo snap install brave bluemail telegram-desktop
+```bash
+sudo pacman -S --needed gimp mpv
+```
+
+### {{< fontawesome star >}} Productivity
+
+```bash
+sudo pacman -S --needed vim tree
+```
 
 ### {{< fontawesome node-js >}} Node
 
@@ -505,6 +507,6 @@ I previously installed some other stuff:
 
 [Manjaro]:               https://manjaro.org/support/firststeps/
 [Sublime Text]:          https://www.sublimetext.com/
-[Sublime Merge]:         https://www.sublimemerge.com/docs/linux_repositories#zypper
+[Sublime Merge]:         https://www.sublimemerge.com/
 [Hugo extended version]: https://github.com/gohugoio/hugo/releases
 [Lenovo Legion T5]:      https://psref.lenovo.com/Detail/Legion/Lenovo_Legion_T5_26IOB6?M=90RS001LUS
