@@ -96,7 +96,7 @@ systemsettings5 clock
 #### Productivity {{< fontawesome shipping-fast-solid >}}
 
 ```bash
-sudo pacman -S --needed vim
+sudo pacman -S --needed vim tree
 ```
 ```bash
 sudo systemctl enable --now snapd.service
@@ -217,7 +217,6 @@ Install ssh keys
 
 https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
-
 ```bash
 ssh-keygen -t ed25519 -C "stav@legion"
 ```
@@ -297,10 +296,12 @@ Close all Terminal instances
 
 #### Link files for editor reference
 
-    stav@thelatae:~$ ll .bash_links/
-    .bash-it.bash -> /home/stav/.bash-it.bash
-    .bash_projects -> /home/stav/.bash_projects
-    .bashrc -> /home/stav/.bashrc
+```bash
+ls .bash_links/
+```
+    .bash_links/.bash-it.bash -> ~/.bash-it.bash
+    .bash_links/.bash_projects -> ~/.bash_projects
+    .bash_links/.bashrc -> ~/.bashrc
 
 ### {{< fontawesome sitemap >}} Hugo
 
@@ -432,47 +433,60 @@ I also now use [Sublime Merge] from the same people.
 
 ### {{< fontawesome node-js >}} Node
 
-We don't install from vendor packages because they are only on version 10 and we want 12.
+We will use the Node Version Manager (`nvm`) to install specific versions as needed
+so first we just install the base packages
 
-#### Install `nvm` {{< fontawesome window-restore >}}
+#### Install dependencies {{< fontawesome window-restore >}}
 
-    wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash
+```bash
+sudo pamac install nodejs npm nvm
+```
 
-Now use `nvm` to install node:
+#### Use `nvm` to install `node`
 
-    $ nvm ls-remote |grep Latest
+I needed to run a setup script to get `nvm` to run:
+
+```bash
+source /usr/share/nvm/init-nvm.sh
+```
+
+Let's see what versions we can install:
+
+```bash
+nvm ls-remote |grep Latest
+```
          v4.9.1   (Latest LTS: Argon)
         v6.17.1   (Latest LTS: Boron)
         v8.17.0   (Latest LTS: Carbon)
-       v10.19.0   (Latest LTS: Dubnium)
-       v12.15.0   (Latest LTS: Erbium)
+       v10.24.1   (Latest LTS: Dubnium)
+       v12.22.7   (Latest LTS: Erbium)
+       v14.18.2   (Latest LTS: Fermium)
+       v16.13.1   (Latest LTS: Gallium)
 
-    $ nvm install 12.15.0
-    Downloading and installing node v12.15.0
+```bash
+nvm install 16
+```
+```plaintext
+Now using node v16.13.1 (npm v8.1.2)
+```
 
-    $ node -v
-    v12.15.0
+#### Install package managers
 
-    $ npm version
-    {
-      npm: '6.13.4',
-      ares: '1.15.0',
-      brotli: '1.0.7',
-      cldr: '35.1',
-      http_parser: '2.9.3',
-      icu: '64.2',
-      llhttp: '2.0.4',
-      modules: '72',
-      napi: '5',
-      nghttp2: '1.40.0',
-      node: '12.15.0',
-      openssl: '1.1.1d',
-      tz: '2019c',
-      unicode: '12.1',
-      uv: '1.33.1',
-      v8: '7.7.299.13-node.16',
-      zlib: '1.2.11'
-    }
+```bash
+corepack enable
+```
+
+#### Update `yarn`
+
+```bash
+yarn set version stable
+```
+
+#### Install `pnpm`
+
+```bash
+corepack prepare pnpm@6.22.2 --activate
+```
 
 {{< fontawesome linux >}}
 
@@ -480,6 +494,7 @@ Now use `nvm` to install node:
 
 I previously installed some other stuff:
 
+* [SUSE 15.1](/post/suse-15.1/)
 * [Ubuntu 19.10](/post/ubuntu-1910/)
 * [Ubuntu 19.04](/post/ubuntu-1904/)
 * [Ubuntu 18.10](/post/ubuntu-1810/)
