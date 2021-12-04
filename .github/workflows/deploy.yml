@@ -53,7 +53,6 @@ jobs:
           port: 22
           username: ${{ secrets.COWBOY_USER }}
           key: ${{ secrets.COWBOY_KEY }}
-          rm: true
           source: "./public"
-          target: /srv/net.almeroth.stevenmichael/doc
-          strip_components: 1
+          target: /srv/net.almeroth.stevenmichael
+          overwrite: true
