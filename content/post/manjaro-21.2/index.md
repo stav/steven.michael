@@ -98,6 +98,9 @@ systemsettings5 clock
 ```bash
 sudo systemctl enable --now snapd.service
 ```
+```bash
+sudo ln -s /var/lib/snapd/snap /snap
+```
 
 ##### Yay
 
@@ -414,6 +417,13 @@ Do not copy these:
 * `User/Package Control.last-run`
 * `User/Package Control.merged-ca-bundle`
 * `User/Package Control.user-ca-bundle`
+
+### {{< fontawesome code >}} VS Code
+
+```bash
+sudo snap install code --classic
+```
+    code ccbaa2d2 from Visual Studio Code (vscode✓) installed
 
 ### {{< fontawesome code >}} Development
 
