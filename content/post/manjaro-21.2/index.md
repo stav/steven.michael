@@ -338,7 +338,7 @@ git submodule update --init --recursive
 
 #### Instal Hugo Extended Version
 
-The Academic theme needs the *extended version*.
+The Academic theme needs the *extended version* for the Sass/SCSS support.
 
 If you run Hugo but get an error like this:
 

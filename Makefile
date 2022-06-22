@@ -3,7 +3,7 @@
 REPO_NAME    = steven.michael
 REPO_URI    := git@github.com:stav/$(REPO_NAME).git
 REPO_REMOTE := $(shell git remote)
-RENDER_DIR  := cowboy:/srv/net.almeroth.stevenmichael/doc
+RENDER_DIR  := cowboy:/srv/net.almeroth.stevenmichael/public2
 
 init:
 	@echo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

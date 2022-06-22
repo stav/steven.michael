@@ -25,32 +25,40 @@ content:
       captcha: false
 
   # Contact details (edit or remove options as required)
-  email: test@example.org
-  phone: 888 888 88 88
+  email: steven.almeroth@gmail.com
+  phone: +1 216 666 0300
   address:
-    street: 450 Serra Mall
-    city: Stanford
-    region: CA
-    postcode: '94305'
+    street: 7387 Pine Ridge Ct
+    city: Cleveland
+    region: Ohio
+    postcode: '44130'
     country: United States
     country_code: US
   coordinates:
-    latitude: '37.4275'
-    longitude: '-122.1697'
-  directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
+    latitude: '41.36'
+    longitude: '-81.81'
+  directions: I-71 to Bagley Rd exit or Pearl Rd exit
   office_hours:
     - 'Monday 10:00 to 13:00'
     - 'Wednesday 09:00 to 10:00'
-  appointment_url: 'https://calendly.com'
+  appointment_url: 
   contact_links:
     - icon: twitter
       icon_pack: fab
       name: DM Me
-      link: 'https://twitter.com/Twitter'
-    - icon: video
+      link: 'https://twitter.com/AlmerothSteven'
+    - icon: skype
+      icon_pack: fab
+      name: Skype Me
+      link: 'skype:hunterchief?call'
+    - icon: telegram
+      icon_pack: fab
+      name: Telegram
+      link: 'https://t.me/stavrosian'
+    - icon: comments
       icon_pack: fas
-      name: Zoom Me
-      link: 'https://zoom.com'
+      name: Discuss on Forum
+      link: 'https://discourse.gohugo.io'
 
 design:
   columns: '2'
