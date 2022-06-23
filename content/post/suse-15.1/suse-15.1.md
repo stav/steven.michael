@@ -146,7 +146,7 @@ It's good to update this document as I'm installing.
     $ git clone git@github.com:stav/steven.michael.git ~/Public
     $ git submodule update --init --recursive
 
-#### Instal Hugo Extended Version
+#### Install Hugo Extended Version
 
 The Academic theme needs the *extended version*.
 

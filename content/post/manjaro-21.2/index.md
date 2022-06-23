@@ -336,7 +336,7 @@ cd ~/Public/stav/steven.michael
 git submodule update --init --recursive
 ```
 
-#### Instal Hugo Extended Version
+#### Install Hugo Extended Version
 
 The Academic theme needs the *extended version* for the Sass/SCSS support.
 
@@ -396,7 +396,7 @@ You want Package Control from wbond.
 
 ##### Install Package Control
 
-Command Pallate (``shft-ctrl-p``) -> Install Package Control
+Command Palate (``shft-ctrl-p``) -> Install Package Control
 
 #### Install packages
 

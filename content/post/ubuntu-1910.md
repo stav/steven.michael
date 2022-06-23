@@ -235,7 +235,7 @@ Close all Terminal instances
 
 It's good to update this document as I'm installing.
 
-#### Instal Hugo
+#### Install Hugo
 
 The default installation did not work:
 

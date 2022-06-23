@@ -48,11 +48,6 @@ social:
   link: //github.com/stav
   title: GitHub Profile
 
-- icon: pied-piper-hat
-  icon_pack: fab
-  link: //stackoverflow.com/users/story/395737
-  title: Stack Overflow User Story
-
 - icon: stack-overflow
   icon_pack: fab
   link: //stackoverflow.com/users/395737/steven-almeroth?tab=profile
