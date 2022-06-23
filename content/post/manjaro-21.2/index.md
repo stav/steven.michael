@@ -129,7 +129,7 @@ ksysguard 5.22.0
 
 Good if you have an SSD (hard drive)
 
-_I have 32G memory so I need to be swapping seldomly_
+_I have 32G memory so I can swap seldomly_
 
 ```bash
 sudo su
@@ -285,8 +285,10 @@ git clone git@github.com:stav/dotbash.git ~/.bash
 
 #### Install bash_it
 
-    $ git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-    $ ~/.bash_it/install.sh  # keep existing `.bashrc` and append templates (y)
+```bash
+git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+~/.bash_it/install.sh  # keep existing `.bashrc` and append templates (y)
+```
 
 ##### Install Powerline theme
 

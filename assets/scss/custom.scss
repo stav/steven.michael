@@ -14,18 +14,31 @@
 }
 
 .language-bash {
-  color: #f1fa8c !important;
+  color: #7d833c !important;
   margin-right: 0.5rem;
 }
 
 .language-bash-session::before {
   content: "#";
-  color: #ddd;
+  color: red;
   margin-right: 0.5rem;
 }
 
 .language-bash-session {
-  color: #ffb3b3 !important;
+  color: #ff8c8c !important;
   margin-right: 0.5rem;
   padding: 0.5rem;
+}
+
+.dark pre {
+  color: inherit !important;
+}
+
+.chroma .go {
+  color: inherit !important;
+}
+
+// github-light.css .line class was not working with flex
+.chroma .line {
+    display: inline-flex !important;
 }
