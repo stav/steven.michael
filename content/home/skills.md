@@ -16,18 +16,21 @@ subtitle:
 # - Add/remove as many `feature` blocks below as you like.
 # - For available icons, see: https://wowchemy.com/docs/page-builder/#icons
 feature:
-- description: 2010
+
+- description: 2012
   icon: python
   icon_pack: fab
   name: Python
-- description: 2012
-  icon: php
-  icon_pack: fab
-  name: PHP
-- description: 2015
+
+- description: 2020
   icon: js-square
   icon_pack: fab
-  name: JavaScript
+  name: TypeScript
+
+- description: 2022
+  icon: rust
+  icon_pack: fab
+  name: Rust
 
 # Uncomment to use emoji icons.
 #- icon: ":smile:"
