@@ -2,7 +2,7 @@
 # Git.
 widget = "tag_cloud"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-weight = 130  # Order that this section will appear.
+weight = 140  # Order that this section will appear.
 
 title = "Git"
 subtitle = "Git commands"
