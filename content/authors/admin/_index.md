@@ -45,35 +45,33 @@ social:
 
 - icon: github
   icon_pack: fab
-  link: //github.com/stav
+  link: https://github.com/stav
   title: GitHub Profile
 
 - icon: stack-overflow
   icon_pack: fab
-  link: //stackoverflow.com/users/395737/steven-almeroth?tab=profile
+  link: https://stackoverflow.com/users/395737/steven-almeroth?tab=profile
   title: Stack Overflow Profile
 
 - icon: stack-exchange
   icon_pack: fab
-  link: //stackexchange.com/users/169573/steven-almeroth
+  link: https://stackexchange.com/users/169573/steven-almeroth
   title: Stack Exchange Page
 
 - icon: bitbucket
   icon_pack: fab
-  link: //bitbucket.org/stav/
+  link: https://bitbucket.org/stav/
   title: Bitbucket Profile
 
 - icon: linkedin
   icon_pack: fab
-  link: //linkedin.com/in/stevenalmeroth
+  link: https://linkedin.com/in/stevenalmeroth
   title: LinkedIn Profile
 
-# Link to a PDF of your resume/CV.
-# To use: copy your resume to `static/uploads/resume.pdf`, enable `ai` icons in `params.toml`, 
-# and uncomment the lines below.
-# - icon: cv
-#   icon_pack: ai
-#   link: uploads/resume.pdf
+- icon: cv
+  icon_pack: ai
+  link: cv
+  title: Resume
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: "sroth77@gmail.com"
@@ -82,10 +80,10 @@ email: "sroth77@gmail.com"
 highlight_name: true
 ---
 
-* _Tropical Solar_: [**Capricornus**](https://en.wikipedia.org/wiki/Capricorn_(astrology) "Capricornus @ Wikipedia") (♑) Cardinal Earth Sea-goat
+* _Tropical Solar_: **[Capricornus](https://en.wikipedia.org/wiki/Capricorn_(astrology) "Capricornus @ Wikipedia")** (♑) Cardinal Earth Sea-goat
   | The Sumerian Enki was the god of intelligence, creation, crafts, magic & water
 
-* _Sidereal Solar_: [**Sagittarius**](https://en.wikipedia.org/wiki/Sagittarius_(astrology) "Sagittarius @ Wikipedia") (♐) Mutable Fire Archer
+* _Sidereal Solar_: **[Sagittarius](https://en.wikipedia.org/wiki/Sagittarius_(astrology) "Sagittarius @ Wikipedia")** (♐) Mutable Fire Archer
   | The *centaur* of mythology, the learned healer whose higher intelligence forms a bridge between Earth and Heaven
 
 * _Chinese_: **Wood Snake** (蛇) Month: **May** Time: **9:00 to 11:00 a.m.**
