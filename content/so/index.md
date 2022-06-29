@@ -18,10 +18,10 @@ https://survey.stackoverflow.co/2022/#language
 
 {{< sotech 90 1200 >}}
 [
-    ['JavaScript', 60],
-    ['HTML/CSS',   70],
-    ['SQL',        40],
-    ['Python',     80],
+    ['JavaScript', 50],
+    ['HTML/CSS',   60],
+    ['SQL',        35],
+    ['Python',     75],
     ['TypeScript', 40],
     ['Java',       20],
     ['Bash/Shell', 30],
@@ -68,23 +68,113 @@ https://survey.stackoverflow.co/2022/#database
 
 {{< sotech 90 600 >}}
 [
-    ['MySQL',      60],
-    ['PostgreSQL', 40],
-    ['SQLite',     40],
-    ['MongoDB',    20],
-    ['MS SQL',     40],
-    ['Redis',      20],
-    ['MariaDB',    50],
+    ['MySQL',         60],
+    ['PostgreSQL',    40],
+    ['SQLite',        40],
+    ['MongoDB',       20],
+    ['MS SQL',        40],
+    ['Redis',         20],
+    ['MariaDB',       50],
     ['Elasticsearch', 10],
-    ['Oracle',      5],
-    ['Firebase',    0],
-    ['DynamoDB',    0],
-    ['Firestore',   0],
-    ['Cassandra',   0],
-    ['Neo4j',       0],
-    ['IBM DB2',     5],
-    ['Couchbase',   0],
-    ['CouchDB',     0]
+    ['Oracle',         5],
+    ['Firebase',       0],
+    ['DynamoDB',       0],
+    ['Firestore',      0],
+    ['Cassandra',      0],
+    ['Neo4j',          0],
+    ['IBM DB2',        5],
+    ['Couchbase',      0],
+    ['CouchDB',        0],
+    ['GraphQL',       20]
+]
+{{< /sotech >}}
+
+### Platforms
+
+https://survey.stackoverflow.co/2022/#platform
+
+{{< sotech 90 520 >}}
+[
+    ['AWS',          30],
+    ['Azure',         0],
+    ['Google',       10],
+    ['Firebase',      0],
+    ['Heroku',       10],
+    ['DigitalOcean', 20],
+    ['VMware',       10],
+    ['Linode',       75],
+    ['OVH',           0],
+    ['Oracle',        0],
+    ['OpenStack',     0],
+    ['IBM / Watsom',  0],
+    ['Colocation',    0]
+]
+{{< /sotech >}}
+
+### Frameworks
+
+https://survey.stackoverflow.co/2022/#webframe
+
+{{< sotech 90 980 >}}
+[
+    ['Node.js',      60],
+    ['React.js',     40],
+    ['jQuery',       30],
+    ['Express',      25],
+    ['Angular',      10],
+    ['Vue.js',       50],
+    ['ASP.NET Core',  5],
+    ['ASP.NET',      30],
+    ['Django',       25],
+    ['Flask',        15],
+    ['Next.js',      20],
+    ['Laravel',       0],
+    ['Angular.js',   25],
+    ['FastAPI',       0],
+    ['Ruby on Rails', 0],
+    ['Svelte',        0],
+    ['Blazor',        0],
+    ['Nuxt.js',      20],
+    ['Symfony',       0],
+    ['Gatsby',        0],
+    ['Drupal',        0],
+    ['Phoenix',       0],
+    ['Fastify',       0],
+    ['Deno',         60],
+    ['Play',          0]
+]
+{{< /sotech >}}
+
+### Tools
+
+{{< sotech 90 280 >}}
+[
+    ['npm',           60],
+    ['pnpm',          60],
+    ['Docker',        30],
+    ['Sublime Merge', 80],
+    ['Yarn',          30],
+    ['Webpack',       20]
+]
+{{< /sotech >}}
+
+### IDE
+
+{{< sotech 90 170 >}}
+[
+    ['Visual Studio Code', 40],
+    ['Vim',                20],
+    ['Sublime Text',       80]
+]
+{{< /sotech >}}
+
+### OS
+
+{{< sotech 90 170 >}}
+[
+    ['Ubuntu',  60],
+    ['Manjaro', 40],
+    ['SUSE',    30]
 ]
 {{< /sotech >}}
 
