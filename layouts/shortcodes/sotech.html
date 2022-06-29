@@ -1,0 +1,40 @@
+{{ $w := default "100" (.Get 0) }}
+{{ $h := default "300" (.Get 1) }}
+{{ $r := ( .Inner | chomp) }}
+{{ $seed := "foo" }}
+{{ $id := delimit (shuffle (split (md5 $seed) "" )) "" }}
+
+<div style="width: {{ $w }}%;height: {{ $h }}px;margin: 0 auto">
+    <canvas id="{{ $id }}"></canvas>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+<script type="text/javascript">
+  var config = {
+    type: 'bar',
+    options: {
+        maintainAspectRatio: false,
+        indexAxis: 'y'
+    },
+    data: {
+        labels: [],
+        datasets: [{
+            axis: 'y',
+            fill: false,
+            label: null,
+            data: [],
+            backgroundColor: [
+                'rgba(195, 65, 65, 1)'
+            ]
+        }]
+    }
+  };
+
+  var zipData = {{ $r | safeJS }};
+  zipData.forEach(tup => {
+      config.data.labels.push(tup[0]);
+      config.data.datasets[0].data.push(tup[1]);
+  });
+
+  var ctx = document.getElementById('{{ $id }}').getContext('2d');
+  new Chart(ctx, config);
+</script>
