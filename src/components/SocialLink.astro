@@ -1,0 +1,16 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { href, name } = Astro.props;
+---
+
+<a
+  href={href}
+  class="hover:text-purple-900 dark:hover:text-purple-300 p-1 m-0"
+  aria-label={name}
+  target="_blank"
+  rel="noopener"
+  title={name}
+>
+  <Icon name={name} class:list={["size-6", "md:size-8", "lg:size-10"]} />
+</a>
