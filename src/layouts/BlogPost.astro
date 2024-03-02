@@ -56,28 +56,29 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<Header />
 		<main>
 			<article class="blog-post">
-				<div class="hero-image">
-					{heroImage && <img src={heroImage} alt="smiley face" />}
+				<div
+					class="title bg-gradient-to-r from-red-950 via-purple-950 to-indigo-950 flex rounded-xl items-center justify-center h-48 md:h-64 lg:h-96 text-white p-4 md:p8 lg:p-12"
+				>
+					<h1 class="text-xl md:text-2xl lg:text-4xl">{title}</h1>
 				</div>
 				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1 class="text-xl md:text-2xl lg:text-4xl">{title}</h1>
+					<div class="date text-center opacity-50">
+						<FormattedDate date={pubDate} />
+						{
+							updatedDate && (
+								<div class="last-updated-on">
+									Last updated on <FormattedDate date={updatedDate} />
+								</div>
+							)
+						}
 					</div>
-					<hr />
+					<hr class="opacity-20" />
 					{
 						description && (
 							<blockquote class="">
-								<p class="leading-loose text-lg md:text-2xl lg:text-4xl italic">{description}</p>
+								<p class="leading-loose text-lg md:text-2xl lg:text-4xl italic">
+									{description}
+								</p>
 							</blockquote>
 						)
 					}
