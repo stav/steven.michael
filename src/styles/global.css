@@ -191,3 +191,8 @@ hr {
 svg {
 	display: inline;
 }
+
+.prose p {
+	text-indent: 2rem;
+	padding-bottom: 0.75rem;
+}

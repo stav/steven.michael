@@ -7,7 +7,7 @@ import FormattedDate from "../components/FormattedDate.astro";
 
 type Props = CollectionEntry<"post">["data"];
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, pubDate, updatedDate, tags } = Astro.props;
 ---
 
 <html lang="en">
@@ -19,32 +19,11 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 				max-width: 100%;
 				margin: 0;
 			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
 			.prose {
 				width: 720px;
 				max-width: calc(100% - 2em);
 				margin: auto;
 				padding: 1em;
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
 			}
 			.last-updated-on {
 				font-style: italic;
@@ -57,12 +36,22 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<main>
 			<article class="blog-post">
 				<div
-					class="title bg-gradient-to-r from-red-950 via-purple-950 to-indigo-950 flex rounded-xl items-center justify-center h-48 md:h-64 lg:h-96 text-white p-4 md:p8 lg:p-12"
+					class="title bg-gradient-to-r from-red-950 via-purple-950 to-indigo-950 flex rounded-xl items-center justify-center h-48 md:h-64 lg:h-96 text-white p-4 md:p8 lg:p-12 mb-2"
 				>
 					<h1 class="text-xl md:text-2xl lg:text-4xl">{title}</h1>
 				</div>
-				<div class="prose">
-					<div class="date text-center opacity-50">
+				<div class="text-xs text-center font-medium uppercase leading-normal">
+					{
+						tags &&
+							tags.map((tag: string) => (
+								<span class="inline-block rounded-full bg-neutral-200 text-neutral-700 shadow-md transition duration-150 ease-in-out hover:bg-neutral-300 hover:shadow-lg focus:bg-neutral-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-neutral-400 active:shadow-lg dark:bg-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-500 dark:focus:bg-neutral-500 dark:active:bg-neutral-400 m-2 px-6 pb-2 pt-2.5">
+									{tag}
+								</span>
+							))
+					}
+				</div>
+				<div>
+					<div class="text-center opacity-50 mb-2">
 						<FormattedDate date={pubDate} />
 						{
 							updatedDate && (
@@ -82,7 +71,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 							</blockquote>
 						)
 					}
-					<slot />
+					<div class="prose">
+						<slot />
+					</div>
 				</div>
 			</article>
 		</main>
