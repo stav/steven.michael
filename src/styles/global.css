@@ -193,6 +193,9 @@ svg {
 }
 
 .prose p {
-	text-indent: 2rem;
 	padding-bottom: 0.75rem;
+	max-width: 720px;
+}
+.prose p::first-letter {
+	font-size: 1.75rem;
 }
