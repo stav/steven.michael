@@ -1,10 +1,10 @@
 ---
-
+import { Icon } from "astro-icon/components";
 ---
 
 <style>
   .chart .bar {
-    @apply  bg-purple-400 dark:bg-purple-700 rounded;
+    @apply bg-purple-400 dark:bg-purple-700 rounded;
     display: inline-flex;
     height: 2rem;
     margin-bottom: 0.4rem;
@@ -17,12 +17,13 @@
   }
 </style>
 
-<figure class="mt-8">
-  <figcaption>
+<figure id="programming" class="mt-8">
+  <figcaption class="pb-2">
     <a
       href="https://survey.stackoverflow.co/2023/#most-popular-technologies-language-prof"
       target="_blank"
     >
+      <Icon name="external" />
       Programming, scripting, and markup languages
     </a>
   </figcaption>
