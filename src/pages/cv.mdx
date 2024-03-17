@@ -1,8 +1,15 @@
 ---
 ---
 
-import CvButton from "../components/CvButton.astro";
 import Layout from "../layouts/BlogPost.astro";
+import CvButton from "../components/CvButton.astro";
+import SoCloud from "../components/SoCloud.astro";
+import SoDatabases from "../components/SoDatabases.astro";
+import SoIde from "../components/SoIde.astro";
+import SoOther from "../components/SoOther.astro";
+import SoProgramming from "../components/SoProgramming.astro";
+import SoTools from "../components/SoTools.astro";
+import SoWeb from "../components/SoWeb.astro";
 
 <Layout
 	title="Curriculum Vitae"
@@ -48,15 +55,25 @@ Full Moon Interactive, Cali USA
 
 </span>
 
-### <div style="color:#e84c3d;"> EDUCATION </div>
-
-<span class="font-read">
+### <div class="text-red-700"> EDUCATION </div>
 
 University of Dayton
 
 BS in Computer Science `1984 - 1988`
 
-</span>
+### <div class="text-blue-500"> TECHNOLOGY </div>
+
+I've taken the tech from Stack Overflow and showcased my relative strength for each.
+
+> In May 2023 over 90,000 developers responded to our annual survey about how they learn and level up, which tools they're using, and which ones they want.
+
+<SoProgramming />
+<SoDatabases />
+<SoCloud />
+<SoWeb />
+<SoOther />
+<SoTools />
+<SoIde />
 
 <div class="pt-8">
 	<CvButton />
