@@ -6,7 +6,11 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 
-const posts = (await getCollection('post')).sort(
+const postsFiltered = await getCollection('post', ({data}) => {
+	// return import.meta.env.PROD ? data.draft !== true : true;
+	return data.draft !== true;
+})
+const postsFilteredSorted = postsFiltered.sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
@@ -80,7 +84,7 @@ const posts = (await getCollection('post')).sort(
 			<section class="blog-posts">
 				<ul>
 					{
-						posts.map((post) => (
+						postsFilteredSorted.map((post) => (
 							<li class="bg-gradient-to-r opacity-75 hover:opacity-100 from-red-950 via-purple-950 to-indigo-950 flex rounded-xl items-center justify-center h-48 md:h-64 lg:h-96 text-center p-4 md:p8 lg:p-12">
 								<a href={`/post/${post.slug}/`}>
 									<h4 class="title text-white">{post.data.title}</h4>

@@ -3,6 +3,7 @@ title: "From RAGs to Wrenches"
 description: "This story is part of a series of stories about RAG, a friendly storytelling robot. In this story, RAG learns about the magical world of stories and knowledge."
 pubDate: "2024-01-05"
 tags: ["RAG", "story", "robot"]
+draft: true
 ---
 
 Imagine you have a super smart robot friend named RAG. RAG is like a wizard robot that loves telling stories and answering your questions. But, sometimes, RAG can get a bit silly and make up stories that aren't quite right.
