@@ -1,0 +1,81 @@
+---
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+
+type Props = CollectionEntry<"post">["data"];
+
+const { title, description, pubDate, updatedDate, tags } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<BaseHead title={title} description={description} />
+		<style>
+			main {
+				width: calc(100% - 2em);
+				max-width: 100%;
+				margin: 0;
+			}
+			.prose {
+				max-width: calc(100% - 2em);
+				margin: auto;
+				padding: 1em;
+			}
+			.last-updated-on {
+				font-style: italic;
+			}
+		</style>
+	</head>
+
+	<body>
+		<Header />
+		<main>
+			<article class="blog-post">
+				<div
+					class="title bg-gradient-to-r from-red-950 via-purple-950 to-indigo-950 flex rounded-xl items-center justify-center h-48 md:h-64 lg:h-96 text-white p-4 md:p8 lg:p-12 mb-2"
+				>
+					<h1 class="text-xl md:text-2xl lg:text-4xl">{title}</h1>
+				</div>
+				<div class="text-xs text-center font-medium uppercase leading-normal">
+					{
+						tags &&
+							tags.map((tag: string) => (
+								<span class="inline-block rounded-full bg-neutral-200 text-neutral-700 shadow-md transition duration-150 ease-in-out hover:bg-neutral-300 hover:shadow-lg focus:bg-neutral-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-neutral-400 active:shadow-lg dark:bg-neutral-600 dark:text-neutral-200 dark:hover:bg-neutral-500 dark:focus:bg-neutral-500 dark:active:bg-neutral-400 m-2 px-6 pb-2 pt-2.5">
+									{tag}
+								</span>
+							))
+					}
+				</div>
+				<div>
+					<div class="text-center opacity-50 mb-2">
+						<FormattedDate date={pubDate} />
+						{
+							updatedDate && (
+								<div class="last-updated-on">
+									Last updated on <FormattedDate date={updatedDate} />
+								</div>
+							)
+						}
+					</div>
+					<hr class="opacity-20" />
+					{
+						description && (
+							<blockquote class="">
+								<p class="text-md md:text-lg lg:text-xl italic">
+									{description}
+								</p>
+							</blockquote>
+						)
+					}
+					<div class="prose text-2xl">
+						<slot />
+					</div>
+				</div>
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>

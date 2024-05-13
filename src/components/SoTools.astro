@@ -1,0 +1,362 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<style>
+  .chart .bar {
+    @apply bg-rose-400 dark:bg-rose-700 rounded;
+    display: inline-flex;
+    height: 2rem;
+    margin-bottom: 0.4rem;
+    overflow: visible;
+    padding-left: 2px;
+    border: 1px dotted rgb(194, 162, 255);
+  }
+  .chart .bar .label {
+    white-space: nowrap;
+  }
+</style>
+
+<figure id="tools" class="mt-8">
+  <figcaption class="pb-2">
+    <a
+      href="https://survey.stackoverflow.co/2023/#most-popular-technologies-tools-tech-prof"
+      target="_blank"
+    >
+      <Icon name="external" />
+      Other tools
+    </a>
+  </figcaption>
+
+  <div class="chart">
+    <div>
+      <div class="bar w-1/3">
+        <span class="label">Docker</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-5/6">
+        <span class="label">npm</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-3/4">
+        <span class="label">Pip</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-1/3">
+        <span class="label">Yarn</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Homebrew</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-1/4">
+        <span class="label">Webpack</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Kubernetes</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-1/3">
+        <span class="label">Make</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">NuGet</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Maven (build tool)</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Gradle</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-2/5">
+        <span class="label">Vite</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Visual Studio Solution</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">CMake</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Terraform</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">MSBuild</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-1/5">
+        <span class="label">Cargo</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-1/6">
+        <span class="label">GNU GCC</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Ansible</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Composer</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Chocolatey</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">LLVM's Clang</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-2/5">
+        <span class="label">APT</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-1/3">
+        <span class="label">pnpm</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Unity 3D</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-1/4">
+        <span class="label">Pacman</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">MSVC</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Podman</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Ninja</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Ant</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Google Test</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Unreal Engine</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Godot</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Nix</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Dagger</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">QMake</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Meson</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Puppet</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Chef</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Pulumi</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Catch2</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-1/3">
+        <span class="label">Bun</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Wasmer</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">SCons</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">doctest</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">bandit</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">cppunit</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">Boost.Test</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">build2</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">tunit</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">snitch</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">lest</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">CUTE</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">ELFspy</span>
+      </div>
+    </div>
+
+    <div>
+      <div class="bar w-[0rem]">
+        <span class="label">liblittletest</span>
+      </div>
+    </div>
+  </div>
+</figure>

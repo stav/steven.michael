@@ -1,0 +1,93 @@
+---
+---
+
+import TopButton from "../components/TopButton.astro";
+import CvButton from "../components/CvButton.astro";
+import Layout from "../layouts/BlogPost.astro";
+import SoCloud from "../components/SoCloud.astro";
+import SoDatabases from "../components/SoDatabases.astro";
+import SoIde from "../components/SoIde.astro";
+import SoOther from "../components/SoOther.astro";
+import SoProgramming from "../components/SoProgramming.astro";
+import SoTools from "../components/SoTools.astro";
+import SoWeb from "../components/SoWeb.astro";
+
+<Layout
+	title="Curriculum Vitae"
+	description="Curriculum Vitae Resume of Steven Almeroth"
+	pubDate={new Date('August 08 2021')}
+	heroImage="/blog-placeholder-about.jpg"
+>
+
+<div class="text-center">
+  ### Code of Honor
+  <CvButton />
+</div>
+
+## Steven Almeroth
+
+<span class="font-read">
+7387 Pine Ridge Ct
+Cleveland Ohio USA
+44130-5518
+
+- stevenmichael.almeroth.net
+- steven@primesite.dev
+- +1 (216) 666 0300
+</span>
+
+_“Web systems that matter”_
+
+### <div class="text-green-600"> EXPERIENCE </div>
+
+<span class="font-read">
+
+Full-stack Developer `Jan 2020 - present`\
+Prime Site, Ohio USA
+
+Back-end Developer `Nov 2011 - Dec 2019`\
+Scrapinghub, Chiapas Mexico
+
+Developer `Jan 2001 - Dec 2010`\
+Freelance, Central Europe
+
+Developer `Jan 1999 - Dec 1999`\
+Full Moon Interactive, Cali USA
+
+</span>
+
+### <div class="text-red-700"> EDUCATION </div>
+
+University of Daytonl
+
+BS in Computer Science `1984 - 1988`
+
+### <div class="text-blue-500"> TECHNOLOGY </div>
+
+I've taken the tech from Stack Overflow and showcased my relative strength for each.
+
+> In May 2023 over 90,000 developers responded to our annual survey about how they learn and level up, which tools they're using, and which ones they want.
+
+- <a href="#programming">Programming, scripting, and markup languages</a>
+- <a href="#databases">Databases</a>
+- <a href="#cloud">Cloud Platforms</a>
+- <a href="#web">Web frameworks and technologiesl</a>
+- <a href="#other">Other frameworks and libraries</a>
+- <a href="#tools">Other tools</a>
+- <a href="#ide">Integrated development environments</a>
+
+<SoProgramming />
+<SoDatabases />
+<SoCloud />
+<SoWeb />
+<SoOther />
+<SoTools />
+<SoIde />
+
+<div class="pt-8">
+	<CvButton />
+</div>
+
+<TopButton />
+
+</Layout>
