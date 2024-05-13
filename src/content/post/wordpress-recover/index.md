@@ -2,7 +2,7 @@
 title: How to reset Wordpress password without e-mail or phpMyAdmin
 pubDate: "2023-09-13T00:00:00Z"
 heroImage: '/blog-placeholder-5.jpg'
-description: "I forgot my Wordpress password and I don't have SMTP services operational on my server at the moment so I had to do run a few Python commands and then login to the mysql client and update my user password field manually. Here's how I did it."
+description: "I forgot my Wordpress password and I don't have SMTP services operational on my server at the moment so I had update my user password field manually. Here's how I did it."
 # Featured image
 # Place an image named `featured.jpg/png` in this page's folder and customize its options here.
 image:
