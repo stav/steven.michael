@@ -194,8 +194,24 @@ svg {
 
 .prose p {
 	padding-bottom: 0.75rem;
-	max-width: 720px;
+	max-width: 1080px;
 }
 .prose p::first-letter {
 	font-size: 1.75rem;
+}
+
+article.blog-post table {
+	border-collapse: collapse;
+	max-width: 1080px;
+}
+article.blog-post table tr {
+	border-width: thick;
+}
+article.blog-post table td, th {
+	padding: 0.5rem;
+}
+article.blog-post li {
+	font-family: 'Atkinson', sans-serif;
+	padding-bottom: 1rem;
+	margin-left: 1rem;
 }
